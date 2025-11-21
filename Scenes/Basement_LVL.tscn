@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbie7y40qv3mv"]
+
+[ext_resource type="PackedScene" uid="uid://bslplxrr4gyjm" path="res://Scenes/manoir.tscn" id="1_a7b1e"]
+[ext_resource type="PackedScene" uid="uid://cfvmog285pj76" path="res://Objects/Ruined_Sofa/post_apocalyptic_ruined_sofa.glb" id="2_k3d0m"]
+[ext_resource type="ArrayMesh" uid="uid://b2wqds7wlxfp3" path="res://Objects/Endoskeleton/Endoskeleton.obj" id="3_iw15y"]
+
+[node name="Basement_LVL" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.61049104, 0.67640626, 0)
+
+[node name="manoir_v_001" parent="." instance=ExtResource("1_a7b1e")]
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("2_k3d0m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7053356, -0.46961638, -6.218334)
+
+[node name="Endoskeleton" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6407764, -0.90401685, -2.7734437)
+mesh = ExtResource("3_iw15y")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.08045986, 0.99675786, 0, -0.99675786, 0.08045986, 0, 0.8228464, 0)

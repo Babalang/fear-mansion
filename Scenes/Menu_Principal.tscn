@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvm02pg2bwx23"]
+
+[ext_resource type="Theme" uid="uid://ouxc66npj3wq" path="res://Themes/Main_menu_theme.tres" id="1_bh5t2"]
+[ext_resource type="Shader" uid="uid://bc7mefdn5aohb" path="res://Shaders/main_menu/Menu_Principal.gdshader" id="1_sryba"]
+[ext_resource type="Texture2D" uid="uid://djeg55a3kmq5q" path="res://Textures/main_menu/fond1.png" id="2_2mu3c"]
+[ext_resource type="Script" uid="uid://dd27e32k0gqrs" path="res://Scripts/main_menu/texture_rect.gd" id="3_2mu3c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jjfk5"]
+shader = ExtResource("1_sryba")
+shader_parameter/time = 5.2350002486625
+shader_parameter/scratch_strength = 0.3
+shader_parameter/interference_strength = 0.4
+
+[node name="MenuPrincipal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_jjfk5")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -384.0
+offset_top = -216.0
+offset_right = 384.0
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_2mu3c")
+script = ExtResource("3_2mu3c")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_bh5t2")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="CanvasLayer/CenterContainer/VBoxContainer2"]
+layout_mode = 2
+text = "FEAR MANSION"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/CenterContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer/VBoxContainer2/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Start" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="Option" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Option"
+
+[node name="Quit" type="Button" parent="CanvasLayer/CenterContainer/VBoxContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
