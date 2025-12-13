@@ -9,8 +9,6 @@
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.61049104, 0.67640626, 0)
 
-[node name="manoir_v_001" parent="." instance=ExtResource("1_a7b1e")]
-
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("2_k3d0m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7053356, -0.46961638, -6.218334)
 
@@ -20,3 +18,5 @@ mesh = ExtResource("3_iw15y")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.08045986, 0.99675786, 0, -0.99675786, 0.08045986, 0, 0.8228464, 0)
+
+[node name="manoir" parent="." instance=ExtResource("1_a7b1e")]
