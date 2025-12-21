@@ -1,9 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://bbie7y40qv3mv"]
+[gd_scene load_steps=15 format=3 uid="uid://bbie7y40qv3mv"]
 
+[ext_resource type="Script" uid="uid://ca00ksh8lilio" path="res://Scenes/basement_lvl.gd" id="1_kqjss"]
 [ext_resource type="PackedScene" uid="uid://cfvmog285pj76" path="res://Objects/Ruined_Sofa/post_apocalyptic_ruined_sofa.glb" id="2_k3d0m"]
-[ext_resource type="PackedScene" uid="uid://ummd6j2le26d" path="res://MansionFBX/manoir_v.006.fbx" id="3_a7b1e"]
 [ext_resource type="ArrayMesh" uid="uid://b2wqds7wlxfp3" path="res://Objects/Endoskeleton/Endoskeleton.obj" id="3_iw15y"]
-[ext_resource type="Shader" uid="uid://bsmv1ry0np6wp" path="res://skybox.gdshader" id="4_k3d0m"]
+[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="4_2ufmk"]
+[ext_resource type="Shader" path="res://skybox.gdshader" id="4_k3d0m"]
+[ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="5_xuwdi"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="6_7iyoc"]
+[ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="6_kqjss"]
+[ext_resource type="PackedScene" uid="uid://cqppbfh2ilvou" path="res://Scenes/manoir_f.tscn" id="7_kqjss"]
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="10_7iyoc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iw15y"]
 shader = ExtResource("4_k3d0m")
@@ -22,6 +28,7 @@ process_mode = 3
 
 [sub_resource type="Environment" id="Environment_a7b1e"]
 background_mode = 2
+background_color = Color(0.9691369, 0.9691369, 0.9691368, 1)
 sky = SubResource("Sky_k3d0m")
 ambient_light_source = 2
 ambient_light_color = Color(0.023529412, 0.039215688, 0.11372549, 0.32941177)
@@ -36,28 +43,56 @@ volumetric_fog_enabled = true
 volumetric_fog_albedo = Color(0, 0, 0, 1)
 volumetric_fog_sky_affect = 0.0
 
-[node name="Basement_LVL" type="Node3D"]
+[sub_resource type="SphereMesh" id="SphereMesh_2ufmk"]
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.61049104, 0.67640626, 0)
+[node name="Basement_LVL" type="Node3D"]
+script = ExtResource("1_kqjss")
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
+world_scale = 5.0
+current = true
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+current = true
+
+[node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
+tracker = &"left_hand"
+
+[node name="LeftHand" parent="XROrigin3D/LeftHand" instance=ExtResource("5_xuwdi")]
+
+[node name="RightHand" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
+tracker = &"right_hand"
+
+[node name="RightHand" parent="XROrigin3D/RightHand" instance=ExtResource("6_kqjss")]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="XROrigin3D/RightHand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0)
+light_color = Color(1, 0.7647059, 0.5294118, 1)
+light_energy = 5.0
+shadow_enabled = true
+shadow_bias = 1.0
+shadow_reverse_cull_face = true
+distance_fade_enabled = true
+distance_fade_begin = 10.0
+spot_range = 140.0
+spot_attenuation = 0.0
+spot_angle = 15.0
+
+[node name="MovementDirect" parent="XROrigin3D/RightHand" instance=ExtResource("4_2ufmk")]
+strafe = true
+
+[node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("6_7iyoc")]
 
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("2_k3d0m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7053356, -0.46961638, -6.218334)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -63.23837, -17.997425, -68.89466)
 
 [node name="Endoskeleton" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.641, -0.904, -0.893)
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0.641, -9.3, -0.893)
 mesh = ExtResource("3_iw15y")
-
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.92331076, 0.38405368, 0, -0.38405368, 0.92331076, 0.6, 0.4, 0)
-light_color = Color(1, 0.7647059, 0.5294118, 1)
-light_energy = 8.0
-shadow_enabled = true
-distance_fade_begin = 0.0
-distance_fade_length = 2.0
-spot_angle = 35.0
-
-[node name="manoir_v_006" parent="." instance=ExtResource("3_a7b1e")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_a7b1e")
@@ -68,3 +103,21 @@ light_color = Color(0.60782033, 0.6684643, 0.88888997, 1)
 light_energy = 3.0
 shadow_enabled = true
 directional_shadow_mode = 0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(0.94887054, -0.25927454, -0.18005963, 0, -0.5704126, 0.8213583, -0.3156656, -0.7793627, -0.54124767, -7.236573, 8.909081, -5.9001164)
+light_energy = 7.906
+light_size = 1.0
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="."]
+transform = Transform3D(-0.6691307, -0.6087486, 0.42625037, 0, 0.57357645, 0.8191521, -0.7431448, 0.5481198, -0.38379756, -7.930663, 11.768589, -0.4)
+light_energy = 3.0
+
+[node name="Node3D" parent="." instance=ExtResource("7_kqjss")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.0142074, 10.617935)
+mesh = SubResource("SphereMesh_2ufmk")
+
+[node name="PickableObject" parent="MeshInstance3D" instance=ExtResource("10_7iyoc")]

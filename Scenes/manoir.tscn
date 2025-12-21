@@ -2,7 +2,4 @@
 
 [ext_resource type="PackedScene" uid="uid://ummd6j2le26d" path="res://MansionFBX/manoir_v.006.fbx" id="1_fuulm"]
 
-[node name="Node3D" type="Node3D"]
-
-[node name="manoir_v_006" parent="." instance=ExtResource("1_fuulm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0007944107, 0.0076761246, 0.008037567)
+[node name="manoir_v_006" instance=ExtResource("1_fuulm")]
