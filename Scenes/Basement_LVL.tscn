@@ -1,8 +1,40 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbie7y40qv3mv"]
+[gd_scene load_steps=8 format=3 uid="uid://bbie7y40qv3mv"]
 
-[ext_resource type="PackedScene" uid="uid://bslplxrr4gyjm" path="res://Scenes/manoir.tscn" id="1_a7b1e"]
 [ext_resource type="PackedScene" uid="uid://cfvmog285pj76" path="res://Objects/Ruined_Sofa/post_apocalyptic_ruined_sofa.glb" id="2_k3d0m"]
+[ext_resource type="PackedScene" uid="uid://ummd6j2le26d" path="res://MansionFBX/manoir_v.006.fbx" id="3_a7b1e"]
 [ext_resource type="ArrayMesh" uid="uid://b2wqds7wlxfp3" path="res://Objects/Endoskeleton/Endoskeleton.obj" id="3_iw15y"]
+[ext_resource type="Shader" uid="uid://bsmv1ry0np6wp" path="res://skybox.gdshader" id="4_k3d0m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iw15y"]
+shader = ExtResource("4_k3d0m")
+shader_parameter/time_scale = 0.5
+shader_parameter/base_color = Color(0.05, 0.05, 0.08, 1)
+shader_parameter/slime_color = Color(0.15, 0.15, 0.2, 1)
+shader_parameter/highlight_color = Color(0.3, 0.35, 0.4, 1)
+shader_parameter/tendril_density = 4.0
+shader_parameter/tendril_thickness = 0.3
+shader_parameter/animation_speed = 1.0
+shader_parameter/slime_wetness = 0.7
+
+[sub_resource type="Sky" id="Sky_k3d0m"]
+sky_material = SubResource("ShaderMaterial_iw15y")
+process_mode = 3
+
+[sub_resource type="Environment" id="Environment_a7b1e"]
+background_mode = 2
+sky = SubResource("Sky_k3d0m")
+ambient_light_source = 2
+ambient_light_color = Color(0.023529412, 0.039215688, 0.11372549, 0.32941177)
+ambient_light_energy = 0.2
+reflected_light_source = 2
+fog_mode = 1
+fog_light_color = Color(9.535274e-05, 0.00011561906, 0.00015177995, 1)
+fog_density = 1.0
+fog_depth_begin = 1.0
+fog_depth_end = 3.0
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0, 0, 0, 1)
+volumetric_fog_sky_affect = 0.0
 
 [node name="Basement_LVL" type="Node3D"]
 
@@ -13,10 +45,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.61049104, 0.67640626, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7053356, -0.46961638, -6.218334)
 
 [node name="Endoskeleton" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6407764, -0.90401685, -2.7734437)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.641, -0.904, -0.893)
 mesh = ExtResource("3_iw15y")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.08045986, 0.99675786, 0, -0.99675786, 0.08045986, 0, 0.8228464, 0)
+transform = Transform3D(1, 0, 0, 0, 0.92331076, 0.38405368, 0, -0.38405368, 0.92331076, 0.6, 0.4, 0)
+light_color = Color(1, 0.7647059, 0.5294118, 1)
+light_energy = 8.0
+shadow_enabled = true
+distance_fade_begin = 0.0
+distance_fade_length = 2.0
+spot_angle = 35.0
 
-[node name="manoir" parent="." instance=ExtResource("1_a7b1e")]
+[node name="manoir_v_006" parent="." instance=ExtResource("3_a7b1e")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_a7b1e")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2000, 0)
+light_color = Color(0.60782033, 0.6684643, 0.88888997, 1)
+light_energy = 3.0
+shadow_enabled = true
+directional_shadow_mode = 0

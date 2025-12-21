@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://brkemktgbk180"]
+
+[ext_resource type="PackedScene" uid="uid://ummd6j2le26d" path="res://MansionFBX/manoir_v.006.fbx" id="1_mxuog"]
+
+[node name="manoir_v_006" instance=ExtResource("1_mxuog")]
+
+[node name="loft_ceiling" parent="manoir_2_0/LOFT" index="1"]
+visible = false
