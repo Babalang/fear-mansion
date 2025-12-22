@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://swt5e50ngtce"]
+
+[ext_resource type="Texture2D" uid="uid://dk4nfw04ms1dp" path="res://materials/Plank/Plank_Base_color.png" id="1_k063s"]
+[ext_resource type="Texture2D" uid="uid://ctdj20pf8tcku" path="res://materials/Plank/Plank_Normal_OpenGL.png" id="2_vn7mo"]
+[ext_resource type="Texture2D" uid="uid://bwwow8h2vju3o" path="res://materials/Plank/Plank_Roughness.png" id="3_mw28p"]
+
+[resource]
+albedo_texture = ExtResource("1_k063s")
+roughness_texture = ExtResource("3_mw28p")
+normal_enabled = true
+normal_texture = ExtResource("2_vn7mo")

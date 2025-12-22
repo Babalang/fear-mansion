@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://di2u1s4y0a08r"]
+
+[ext_resource type="Texture2D" uid="uid://dxsjk6d65yvl7" path="res://materials/BasementDoors/BasementDoors_Base_color.png" id="1_rf7gs"]
+[ext_resource type="Texture2D" uid="uid://bbytmvsxbcgpg" path="res://materials/BasementDoors/BasementDoors_Metallic.png" id="2_3xjo6"]
+[ext_resource type="Texture2D" uid="uid://dqikwsaknkcxf" path="res://materials/BasementDoors/BasementDoors_Normal_OpenGL.png" id="3_xlwtt"]
+[ext_resource type="Texture2D" uid="uid://d1yb168xsk2bk" path="res://materials/BasementDoors/BasementDoors_Roughness.png" id="4_rn226"]
+
+[resource]
+albedo_texture = ExtResource("1_rf7gs")
+metallic = 1.0
+metallic_texture = ExtResource("2_3xjo6")
+roughness_texture = ExtResource("4_rn226")
+normal_enabled = true
+normal_texture = ExtResource("3_xlwtt")

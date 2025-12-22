@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bbie7y40qv3mv"]
+[gd_scene load_steps=13 format=3 uid="uid://bbie7y40qv3mv"]
 
 [ext_resource type="Script" uid="uid://ca00ksh8lilio" path="res://Scenes/basement_lvl.gd" id="1_kqjss"]
 [ext_resource type="PackedScene" uid="uid://cfvmog285pj76" path="res://Objects/Ruined_Sofa/post_apocalyptic_ruined_sofa.glb" id="2_k3d0m"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="6_7iyoc"]
 [ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="6_kqjss"]
 [ext_resource type="PackedScene" uid="uid://cqppbfh2ilvou" path="res://Scenes/manoir_f.tscn" id="7_kqjss"]
-[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="10_7iyoc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iw15y"]
 shader = ExtResource("4_k3d0m")
@@ -29,8 +28,9 @@ process_mode = 3
 [sub_resource type="Environment" id="Environment_a7b1e"]
 background_mode = 2
 background_color = Color(0.9691369, 0.9691369, 0.9691368, 1)
+background_energy_multiplier = 0.25
 sky = SubResource("Sky_k3d0m")
-ambient_light_source = 2
+ambient_light_source = 3
 ambient_light_color = Color(0.023529412, 0.039215688, 0.11372549, 0.32941177)
 ambient_light_energy = 0.2
 reflected_light_source = 2
@@ -40,17 +40,17 @@ fog_density = 1.0
 fog_depth_begin = 1.0
 fog_depth_end = 3.0
 volumetric_fog_enabled = true
+volumetric_fog_density = 0.02
 volumetric_fog_albedo = Color(0, 0, 0, 1)
+volumetric_fog_length = 30.0
 volumetric_fog_sky_affect = 0.0
-
-[sub_resource type="SphereMesh" id="SphereMesh_2ufmk"]
 
 [node name="Basement_LVL" type="Node3D"]
 script = ExtResource("1_kqjss")
 
 [node name="XROrigin3D" type="XROrigin3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
-world_scale = 5.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -112.3714, 78.718796, 36.815254)
+world_scale = 10.0
 current = true
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
@@ -69,8 +69,8 @@ tracker = &"right_hand"
 
 [node name="RightHand" parent="XROrigin3D/RightHand" instance=ExtResource("6_kqjss")]
 
-[node name="SpotLight3D" type="SpotLight3D" parent="XROrigin3D/RightHand"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0)
+[node name="SpotLight3D" type="SpotLight3D" parent="XROrigin3D/RightHand/RightHand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13887787, 0, -0.13177872)
 light_color = Color(1, 0.7647059, 0.5294118, 1)
 light_energy = 5.0
 shadow_enabled = true
@@ -83,9 +83,11 @@ spot_attenuation = 0.0
 spot_angle = 15.0
 
 [node name="MovementDirect" parent="XROrigin3D/RightHand" instance=ExtResource("4_2ufmk")]
+max_speed = 5.0
 strafe = true
 
 [node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("6_7iyoc")]
+floor_max_angle = 0.87266463
 
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("2_k3d0m")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -63.23837, -17.997425, -68.89466)
@@ -100,14 +102,27 @@ environment = SubResource("Environment_a7b1e")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2000, 0)
 light_color = Color(0.60782033, 0.6684643, 0.88888997, 1)
-light_energy = 3.0
+light_energy = 0.5
 shadow_enabled = true
-directional_shadow_mode = 0
+directional_shadow_mode = 1
+directional_shadow_split_1 = 0.8
+directional_shadow_blend_splits = true
+directional_shadow_fade_start = 0.5
+directional_shadow_max_distance = 1000.0
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="."]
-transform = Transform3D(0.94887054, -0.25927454, -0.18005963, 0, -0.5704126, 0.8213583, -0.3156656, -0.7793627, -0.54124767, -7.236573, 8.909081, -5.9001164)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -100, 116.662, 7)
 light_energy = 7.906
 light_size = 1.0
+spot_range = 71.69718
+spot_angle = 89.99
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -100, 116.662, 38.33261)
+light_energy = 7.906
+light_size = 1.0
+spot_range = 71.69718
+spot_angle = 89.99
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="."]
 transform = Transform3D(-0.6691307, -0.6087486, 0.42625037, 0, 0.57357645, 0.8191521, -0.7431448, 0.5481198, -0.38379756, -7.930663, 11.768589, -0.4)
@@ -115,9 +130,3 @@ light_energy = 3.0
 
 [node name="Node3D" parent="." instance=ExtResource("7_kqjss")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.0142074, 10.617935)
-mesh = SubResource("SphereMesh_2ufmk")
-
-[node name="PickableObject" parent="MeshInstance3D" instance=ExtResource("10_7iyoc")]

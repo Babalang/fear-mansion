@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://6wwxlep5hgwo"]
+
+[ext_resource type="Texture2D" uid="uid://cr1d3nsxgt718" path="res://materials/Loft/ThirdFloor_Base_color.png" id="1_t1pnb"]
+[ext_resource type="Texture2D" uid="uid://bbalal56uh7qt" path="res://materials/Loft/ThirdFloor_Metallic.png" id="2_t1pnb"]
+[ext_resource type="Texture2D" uid="uid://uekyvds0vo2w" path="res://materials/Loft/ThirdFloor_Normal_OpenGL.png" id="3_pcuik"]
+[ext_resource type="Texture2D" uid="uid://fptbpn2kfx7n" path="res://materials/Loft/ThirdFloor_Roughness.png" id="4_vc8er"]
+
+[resource]
+transparency = 4
+blend_mode = 1
+albedo_texture = ExtResource("1_t1pnb")
+metallic_texture = ExtResource("2_t1pnb")
+roughness_texture = ExtResource("4_vc8er")
+normal_enabled = true
+normal_texture = ExtResource("3_pcuik")
