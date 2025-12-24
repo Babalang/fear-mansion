@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://we35fgi6k13o"]
+
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="2_26jkg"]
+[ext_resource type="PackedScene" uid="uid://njx823gyk04n" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_hand.tscn" id="2_x3103"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="3_26jkg"]
+[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="3_wqhxr"]
+[ext_resource type="PackedScene" uid="uid://raeeicvvindd" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_hand.tscn" id="4_10pjn"]
+
+[node name="Player" type="Node3D"]
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+world_scale = 10.0
+current = true
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+
+[node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
+tracker = &"left_hand"
+
+[node name="FunctionPickup" parent="XROrigin3D/LeftHand" instance=ExtResource("2_26jkg")]
+grab_collision_mask = 329732
+
+[node name="LeftHand" parent="XROrigin3D/LeftHand" instance=ExtResource("2_x3103")]
+
+[node name="RightHand" type="XRController3D" parent="XROrigin3D"]
+tracker = &"right_hand"
+
+[node name="MovementDirect" parent="XROrigin3D/RightHand" instance=ExtResource("3_wqhxr")]
+max_speed = 5.0
+strafe = true
+
+[node name="FunctionPickup" parent="XROrigin3D/RightHand" instance=ExtResource("2_26jkg")]
+grab_collision_mask = 329732
+
+[node name="RightHand" parent="XROrigin3D/RightHand" instance=ExtResource("4_10pjn")]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="XROrigin3D/RightHand/RightHand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, -0.3)
+light_color = Color(1, 0.7647059, 0.5294118, 1)
+light_energy = 5.0
+shadow_enabled = true
+shadow_bias = 1.0
+shadow_reverse_cull_face = true
+distance_fade_enabled = true
+distance_fade_begin = 10.0
+spot_range = 140.0
+spot_attenuation = 0.0
+spot_angle = 15.0
+
+[node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("3_26jkg")]
+push_rigid_bodies = false

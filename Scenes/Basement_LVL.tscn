@@ -1,13 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://bbie7y40qv3mv"]
+[gd_scene load_steps=12 format=3 uid="uid://bbie7y40qv3mv"]
 
 [ext_resource type="Script" uid="uid://ca00ksh8lilio" path="res://Scenes/basement_lvl.gd" id="1_kqjss"]
 [ext_resource type="PackedScene" uid="uid://cfvmog285pj76" path="res://Objects/Ruined_Sofa/post_apocalyptic_ruined_sofa.glb" id="2_k3d0m"]
 [ext_resource type="ArrayMesh" uid="uid://b2wqds7wlxfp3" path="res://Objects/Endoskeleton/Endoskeleton.obj" id="3_iw15y"]
-[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="4_2ufmk"]
 [ext_resource type="Shader" path="res://skybox.gdshader" id="4_k3d0m"]
-[ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="5_xuwdi"]
-[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="6_7iyoc"]
-[ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="6_kqjss"]
+[ext_resource type="PackedScene" uid="uid://we35fgi6k13o" path="res://Blueprints/player.tscn" id="6_xuwdi"]
+[ext_resource type="PackedScene" uid="uid://cjvli56e414qu" path="res://Objects/pickable_object.tscn" id="7_j86du"]
 [ext_resource type="PackedScene" uid="uid://cqppbfh2ilvou" path="res://Scenes/manoir_f.tscn" id="7_kqjss"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iw15y"]
@@ -45,49 +43,10 @@ volumetric_fog_albedo = Color(0, 0, 0, 1)
 volumetric_fog_length = 30.0
 volumetric_fog_sky_affect = 0.0
 
+[sub_resource type="BoxMesh" id="BoxMesh_kqjss"]
+
 [node name="Basement_LVL" type="Node3D"]
 script = ExtResource("1_kqjss")
-
-[node name="XROrigin3D" type="XROrigin3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -112.3714, 78.718796, 36.815254)
-world_scale = 10.0
-current = true
-
-[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
-current = true
-
-[node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
-tracker = &"left_hand"
-
-[node name="LeftHand" parent="XROrigin3D/LeftHand" instance=ExtResource("5_xuwdi")]
-
-[node name="RightHand" type="XRController3D" parent="XROrigin3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
-tracker = &"right_hand"
-
-[node name="RightHand" parent="XROrigin3D/RightHand" instance=ExtResource("6_kqjss")]
-
-[node name="SpotLight3D" type="SpotLight3D" parent="XROrigin3D/RightHand/RightHand"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13887787, 0, -0.13177872)
-light_color = Color(1, 0.7647059, 0.5294118, 1)
-light_energy = 5.0
-shadow_enabled = true
-shadow_bias = 1.0
-shadow_reverse_cull_face = true
-distance_fade_enabled = true
-distance_fade_begin = 10.0
-spot_range = 140.0
-spot_attenuation = 0.0
-spot_angle = 15.0
-
-[node name="MovementDirect" parent="XROrigin3D/RightHand" instance=ExtResource("4_2ufmk")]
-max_speed = 5.0
-strafe = true
-
-[node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("6_7iyoc")]
-floor_max_angle = 0.87266463
 
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("2_k3d0m")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -63.23837, -17.997425, -68.89466)
@@ -128,5 +87,18 @@ spot_angle = 89.99
 transform = Transform3D(-0.6691307, -0.6087486, 0.42625037, 0, 0.57357645, 0.8191521, -0.7431448, 0.5481198, -0.38379756, -7.930663, 11.768589, -0.4)
 light_energy = 3.0
 
-[node name="Node3D" parent="." instance=ExtResource("7_kqjss")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+[node name="Manoir" parent="." instance=ExtResource("7_kqjss")]
+
+[node name="SnapPoint" type="Node3D" parent="Manoir"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.199036, 86.69494, 45.090893)
+
+[node name="serrure" type="MeshInstance3D" parent="Manoir/SnapPoint"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35379028, 0, 0)
+mesh = SubResource("BoxMesh_kqjss")
+
+[node name="Player" parent="." instance=ExtResource("6_xuwdi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -95.07627, 81.43577, 49.86139)
+
+[node name="PickableObject" parent="." node_paths=PackedStringArray("snap_point") instance=ExtResource("7_j86du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -104.256775, 87.06844, 22.57316)
+snap_point = NodePath("../Manoir/SnapPoint")

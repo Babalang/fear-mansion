@@ -36,6 +36,11 @@ signal action_released(pickable)
 # Signal emitted when the highlight state changes
 signal highlight_updated(pickable, enable)
 
+signal snapped(point : Node3D)
+
+var is_snapped := false
+@export var snap_point : Node3D = null
+
 
 ## Method used to grab object at range
 enum RangedMethod {
@@ -370,9 +375,16 @@ func let_go(by: Node3D, p_linear_velocity: Vector3, p_angular_velocity: Vector3)
 	# Set velocity
 	linear_velocity = p_linear_velocity
 	angular_velocity = p_angular_velocity
+	
 
 	# let interested parties know
 	dropped.emit(self)
+	if snap_point:
+		var distance_to_snap = global_transform.origin.distance_to(snap_point.global_transform.origin)
+		var snap_radius = 5
+		print("hello", distance_to_snap)
+		if distance_to_snap <= snap_radius:
+			snap_to_point(snap_point)
 
 
 ## Get the node currently holding this object
@@ -437,3 +449,21 @@ func _get_grab_point(grabber : Node3D, current : XRToolsGrabPoint) -> XRToolsGra
 func _set_ranged_grab_method(new_value: int) -> void:
 	ranged_grab_method = new_value
 	can_ranged_grab = new_value != RangedMethod.NONE
+
+func snap_to_point(point: Node3D):
+	# Position et rotation de l'objet sur le point
+	global_transform = point.global_transform
+	is_snapped = true
+	snap_point = point
+
+	if self is RigidBody3D:
+		# Fixer l'objet
+		freeze = true
+		freeze_mode = RigidBody3D.FREEZE_MODE_KINEMATIC
+		self.linear_velocity = Vector3.ZERO
+		self.angular_velocity = Vector3.ZERO
+	elif self is Node3D:
+		set_physics_process(false)  # Stop toute logique de déplacement
+		
+	Global.emit_signal("key_snapped", snap_point.name)
+	visible = false
