@@ -25,6 +25,14 @@ Global="*res://Global.gd"
 
 enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 
+[filesystem]
+
+import/blender/enabled=false
+
+[godot_xr_tools]
+
+player/standard_height=1.5
+
 [xr]
 
 openxr/enabled=true

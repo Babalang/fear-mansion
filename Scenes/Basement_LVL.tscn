@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bbie7y40qv3mv"]
+[gd_scene load_steps=10 format=3 uid="uid://bbie7y40qv3mv"]
 
 [ext_resource type="Script" uid="uid://ca00ksh8lilio" path="res://Scenes/basement_lvl.gd" id="1_kqjss"]
 [ext_resource type="PackedScene" uid="uid://cfvmog285pj76" path="res://Objects/Ruined_Sofa/post_apocalyptic_ruined_sofa.glb" id="2_k3d0m"]
 [ext_resource type="ArrayMesh" uid="uid://b2wqds7wlxfp3" path="res://Objects/Endoskeleton/Endoskeleton.obj" id="3_iw15y"]
 [ext_resource type="Shader" path="res://skybox.gdshader" id="4_k3d0m"]
 [ext_resource type="PackedScene" uid="uid://we35fgi6k13o" path="res://Blueprints/player.tscn" id="6_xuwdi"]
-[ext_resource type="PackedScene" uid="uid://cjvli56e414qu" path="res://Objects/pickable_object.tscn" id="7_j86du"]
 [ext_resource type="PackedScene" uid="uid://cqppbfh2ilvou" path="res://Scenes/manoir_f.tscn" id="7_kqjss"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iw15y"]
@@ -26,24 +25,26 @@ process_mode = 3
 [sub_resource type="Environment" id="Environment_a7b1e"]
 background_mode = 2
 background_color = Color(0.9691369, 0.9691369, 0.9691368, 1)
-background_energy_multiplier = 0.25
+background_energy_multiplier = 0.5
 sky = SubResource("Sky_k3d0m")
 ambient_light_source = 3
 ambient_light_color = Color(0.023529412, 0.039215688, 0.11372549, 0.32941177)
-ambient_light_energy = 0.2
+ambient_light_sky_contribution = 0.8
+ambient_light_energy = 0.5
 reflected_light_source = 2
+tonemap_mode = 2
+tonemap_exposure = 1.35
 fog_mode = 1
 fog_light_color = Color(9.535274e-05, 0.00011561906, 0.00015177995, 1)
 fog_density = 1.0
 fog_depth_begin = 1.0
 fog_depth_end = 3.0
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.02
+volumetric_fog_density = 0.3
 volumetric_fog_albedo = Color(0, 0, 0, 1)
-volumetric_fog_length = 30.0
+volumetric_fog_length = 1000.0
+volumetric_fog_ambient_inject = 0.16
 volumetric_fog_sky_affect = 0.0
-
-[sub_resource type="BoxMesh" id="BoxMesh_kqjss"]
 
 [node name="Basement_LVL" type="Node3D"]
 script = ExtResource("1_kqjss")
@@ -52,53 +53,30 @@ script = ExtResource("1_kqjss")
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -63.23837, -17.997425, -68.89466)
 
 [node name="Endoskeleton" type="MeshInstance3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0.641, -9.3, -0.893)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.641, -9.3, -0.893)
 mesh = ExtResource("3_iw15y")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_a7b1e")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2000, 0)
-light_color = Color(0.60782033, 0.6684643, 0.88888997, 1)
-light_energy = 0.5
+[node name="Lune" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3131.5073, 2340.2378)
+light_color = Color(0.79194987, 0.8265227, 0.9473124, 1)
+light_energy = 0.05
 shadow_enabled = true
-directional_shadow_mode = 1
-directional_shadow_split_1 = 0.8
+directional_shadow_split_1 = 0.5
 directional_shadow_blend_splits = true
 directional_shadow_fade_start = 0.5
 directional_shadow_max_distance = 1000.0
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -100, 116.662, 7)
-light_energy = 7.906
-light_size = 1.0
-spot_range = 71.69718
-spot_angle = 89.99
-
-[node name="SpotLight3D4" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -100, 116.662, 38.33261)
-light_energy = 7.906
-light_size = 1.0
-spot_range = 71.69718
-spot_angle = 89.99
-
-[node name="SpotLight3D3" type="SpotLight3D" parent="."]
-transform = Transform3D(-0.6691307, -0.6087486, 0.42625037, 0, 0.57357645, 0.8191521, -0.7431448, 0.5481198, -0.38379756, -7.930663, 11.768589, -0.4)
-light_energy = 3.0
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -10.828432, 11.724976, 2.5514674)
+light_energy = 5.0
+spot_range = 5.4891596
+spot_angle = 67.486305
 
 [node name="Manoir" parent="." instance=ExtResource("7_kqjss")]
-
-[node name="SnapPoint" type="Node3D" parent="Manoir"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78.199036, 86.69494, 45.090893)
-
-[node name="serrure" type="MeshInstance3D" parent="Manoir/SnapPoint"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35379028, 0, 0)
-mesh = SubResource("BoxMesh_kqjss")
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 
 [node name="Player" parent="." instance=ExtResource("6_xuwdi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -95.07627, 81.43577, 49.86139)
-
-[node name="PickableObject" parent="." node_paths=PackedStringArray("snap_point") instance=ExtResource("7_j86du")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -104.256775, 87.06844, 22.57316)
-snap_point = NodePath("../Manoir/SnapPoint")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.08173, 8.447369, 3.5769038)

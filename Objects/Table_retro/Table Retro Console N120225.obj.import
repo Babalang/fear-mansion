@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://63yo6vxnb564"
+path="res://.godot/imported/Table Retro Console N120225.obj-d47a3f9d80ec25e4096a9d656ad8a5af.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Table Retro Console N120225.obj-d47a3f9d80ec25e4096a9d656ad8a5af.mesh"]
+
+source_file="res://Objects/Table_retro/Table Retro Console N120225.obj"
+dest_files=["res://.godot/imported/Table Retro Console N120225.obj-d47a3f9d80ec25e4096a9d656ad8a5af.mesh", "res://.godot/imported/Table Retro Console N120225.obj-d47a3f9d80ec25e4096a9d656ad8a5af.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

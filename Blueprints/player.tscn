@@ -1,29 +1,111 @@
-[gd_scene load_steps=6 format=3 uid="uid://we35fgi6k13o"]
+[gd_scene load_steps=24 format=3 uid="uid://we35fgi6k13o"]
 
+[ext_resource type="Script" uid="uid://cm01a7m6j1nu2" path="res://Scripts/left_hand.gd" id="1_f1l26"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="2_26jkg"]
 [ext_resource type="PackedScene" uid="uid://njx823gyk04n" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_hand.tscn" id="2_x3103"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="3_26jkg"]
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="3_wqhxr"]
 [ext_resource type="PackedScene" uid="uid://raeeicvvindd" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_hand.tscn" id="4_10pjn"]
+[ext_resource type="Script" uid="uid://c62bdbkbtydqm" path="res://Scripts/display.gd" id="4_22nbg"]
+[ext_resource type="Script" uid="uid://g401mkrof0g7" path="res://Scripts/right_hand.gd" id="4_u52ks"]
+[ext_resource type="Texture2D" uid="uid://dhrkefj4c5euy" path="res://Objects/Flashlight/FlashlightTexture.png" id="5_10pjn"]
+[ext_resource type="Script" uid="uid://wuji5io526wx" path="res://Scripts/Torche.gd" id="6_aoko6"]
+[ext_resource type="ArrayMesh" uid="uid://c1mayy8xjjpak" path="res://Objects/Flashlight/Flashlight.obj" id="6_f1l26"]
+[ext_resource type="PackedScene" uid="uid://hdkjhcpxgeof" path="res://Objects/apples_smart_watch_ios/scene.gltf" id="8_kx678"]
+[ext_resource type="Texture2D" uid="uid://ceryjer2l0uo" path="res://Textures/Battery/battery_empty.png" id="9_kx678"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_22nbg"]
+viewport_path = NodePath("XROrigin3D/LeftHand/LeftHand/displayer/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1pbwj"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = SubResource("ViewportTexture_22nbg")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_22nbg"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_1pbwj")
+size = Vector2(10, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_u52ks"]
+font_size = 50
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eni5h"]
+blend_mode = 3
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_eni5h"]
+material = SubResource("StandardMaterial3D_eni5h")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aoko6"]
+albedo_texture = ExtResource("5_10pjn")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_aoko6"]
+viewport_path = NodePath("XROrigin3D/RightHand/RightHand/Torche/UI/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_22nbg"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = SubResource("ViewportTexture_aoko6")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_aoko6"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_22nbg")
 
 [node name="Player" type="Node3D"]
 
 [node name="XROrigin3D" type="XROrigin3D" parent="."]
-world_scale = 10.0
-current = true
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
 
-[node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
+[node name="LeftHand" type="XRController3D" parent="XROrigin3D" node_paths=PackedStringArray("raycast")]
 tracker = &"left_hand"
+script = ExtResource("1_f1l26")
+raycast = NodePath("RayCast3D")
 
 [node name="FunctionPickup" parent="XROrigin3D/LeftHand" instance=ExtResource("2_26jkg")]
 grab_collision_mask = 329732
 
 [node name="LeftHand" parent="XROrigin3D/LeftHand" instance=ExtResource("2_x3103")]
 
+[node name="displayer" type="MeshInstance3D" parent="XROrigin3D/LeftHand/LeftHand"]
+transform = Transform3D(0.14142133, 0.6830126, 0.018301269, 0, 0.25881904, -0.09659257, -0.14142133, 0.6830126, 0.018301269, -0.121489465, 0.13881357, -0.041818023)
+mesh = SubResource("PlaneMesh_22nbg")
+skeleton = NodePath("../../../RightHand/RightHand/Torche/Light")
+script = ExtResource("4_22nbg")
+
+[node name="SubViewport" type="SubViewport" parent="XROrigin3D/LeftHand/LeftHand/displayer"]
+transparent_bg = true
+size = Vector2i(2560, 512)
+
+[node name="texte_label" type="Label" parent="XROrigin3D/LeftHand/LeftHand/displayer/SubViewport"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.0
+offset_top = -116.0
+offset_right = 71.0
+offset_bottom = -46.999985
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_u52ks")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RayCast3D" type="RayCast3D" parent="XROrigin3D/LeftHand"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0, 0)
+target_position = Vector3(0, 0, -4)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/LeftHand/RayCast3D"]
+transform = Transform3D(0.01, 0, 0, 0, -8.273064e-08, -0.009999986, 0, 1.8926561, -4.371132e-10, 0, 0, -1.964933)
+mesh = SubResource("CylinderMesh_eni5h")
+
 [node name="RightHand" type="XRController3D" parent="XROrigin3D"]
 tracker = &"right_hand"
+script = ExtResource("4_u52ks")
 
 [node name="MovementDirect" parent="XROrigin3D/RightHand" instance=ExtResource("3_wqhxr")]
 max_speed = 5.0
@@ -34,18 +116,134 @@ grab_collision_mask = 329732
 
 [node name="RightHand" parent="XROrigin3D/RightHand" instance=ExtResource("4_10pjn")]
 
-[node name="SpotLight3D" type="SpotLight3D" parent="XROrigin3D/RightHand/RightHand"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, -0.3)
+[node name="Torche" type="Node3D" parent="XROrigin3D/RightHand/RightHand"]
+script = ExtResource("6_aoko6")
+
+[node name="Light" type="SpotLight3D" parent="XROrigin3D/RightHand/RightHand/Torche"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.3)
 light_color = Color(1, 0.7647059, 0.5294118, 1)
 light_energy = 5.0
+light_volumetric_fog_energy = 0.0
 shadow_enabled = true
 shadow_bias = 1.0
 shadow_reverse_cull_face = true
 distance_fade_enabled = true
-distance_fade_begin = 10.0
-spot_range = 140.0
-spot_attenuation = 0.0
-spot_angle = 15.0
+distance_fade_begin = 5.0
+distance_fade_shadow = 5.0
+distance_fade_length = 5.0
+spot_range = 20.0
+spot_attenuation = 0.1
+spot_angle = 20.0
+
+[node name="Sketchfab_Scene" parent="XROrigin3D/RightHand/RightHand/Torche" instance=ExtResource("8_kx678")]
+transform = Transform3D(2.9383598e-10, 0.010945987, 0.014289344, -2.157631e-09, -0.014289344, 0.010945987, 0.018, -1.8915252e-09, 1.0788155e-09, 0.008905679, -0.0029999483, 0.080663316)
+
+[node name="Mesh_Torche" type="MeshInstance3D" parent="XROrigin3D/RightHand/RightHand/Torche"]
+transform = Transform3D(-0.025, 0, 2.1855695e-09, 0, 0.025, 0, -2.1855695e-09, 0, -0.025, 0.87946415, 0, 0.10018158)
+visible = false
+material_override = SubResource("StandardMaterial3D_aoko6")
+mesh = ExtResource("6_f1l26")
+skeleton = NodePath("../Light")
+
+[node name="UI" type="MeshInstance3D" parent="XROrigin3D/RightHand/RightHand/Torche"]
+transform = Transform3D(0.1532089, -0.5566704, -0.032139376, 0, 0.49999997, -0.086602546, 0.12855752, 0.663414, 0.03830222, 0.1267364, 0.13881357, 0.045785874)
+mesh = SubResource("PlaneMesh_aoko6")
+skeleton = NodePath("../Light")
+
+[node name="SubViewport" type="SubViewport" parent="XROrigin3D/RightHand/RightHand/Torche/UI"]
+transparent_bg = true
+
+[node name="battery_25" type="ColorRect" parent="XROrigin3D/RightHand/RightHand/Torche/UI/SubViewport"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 44.0
+offset_top = -20.0
+offset_right = 84.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="battery_50" type="ColorRect" parent="XROrigin3D/RightHand/RightHand/Torche/UI/SubViewport"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.0
+offset_top = -20.0
+offset_right = 34.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="battery_75" type="ColorRect" parent="XROrigin3D/RightHand/RightHand/Torche/UI/SubViewport"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -20.0
+offset_right = -16.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="battery_100" type="ColorRect" parent="XROrigin3D/RightHand/RightHand/Torche/UI/SubViewport"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.0
+offset_top = -20.0
+offset_right = -66.00012
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="XROrigin3D/RightHand/RightHand/Torche/UI/SubViewport"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.5
+offset_top = 214.0
+offset_right = 6.500061
+offset_bottom = 414.00037
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5707964
+scale = Vector2(2, 1.5)
+texture = ExtResource("9_kx678")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="percent" type="Label" parent="XROrigin3D/RightHand/RightHand/Torche/UI/SubViewport"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.0
+offset_top = -116.0
+offset_right = 71.0
+offset_bottom = -46.999985
+grow_horizontal = 2
+grow_vertical = 2
+text = "100 %"
+label_settings = SubResource("LabelSettings_u52ks")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("3_26jkg")]
+floor_constant_speed = true
+floor_block_on_wall = false
+floor_snap_length = 0.2
+head_behavior_mode = 0
 push_rigid_bodies = false
+ground_control = 2
