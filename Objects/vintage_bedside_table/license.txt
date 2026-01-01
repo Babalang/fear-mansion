@@ -1,0 +1,11 @@
+Model Information:
+* title:	Vintage bedside table
+* source:	https://sketchfab.com/3d-models/vintage-bedside-table-d9538164a5af41a28da360532149e2c1
+* author:	Кіт Васько (https://sketchfab.com/kit_vasko)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Vintage bedside table" (https://sketchfab.com/3d-models/vintage-bedside-table-d9538164a5af41a28da360532149e2c1) by Кіт Васько (https://sketchfab.com/kit_vasko) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Rustic Sink
+* source:	https://sketchfab.com/3d-models/rustic-sink-9004f61e76194c349c22065ce8beb6a5
+* author:	Evil Crumb (https://sketchfab.com/kittencublover9002)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Rustic Sink" (https://sketchfab.com/3d-models/rustic-sink-9004f61e76194c349c22065ce8beb6a5) by Evil Crumb (https://sketchfab.com/kittencublover9002) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -1,0 +1,563 @@
+[gd_scene load_steps=35 format=3 uid="uid://bj8febuciuamh"]
+
+[ext_resource type="FontFile" path="res://fonts/xolonium/Xolonium.tres" id="1_v71du"]
+[ext_resource type="Script" uid="uid://cdjmk21p8yde4" path="res://Scripts/Screen_digicode.gd" id="2_an1qf"]
+[ext_resource type="Script" uid="uid://cfrb0gvfotwor" path="res://Scripts/digicode.gd" id="2_b4xdk"]
+[ext_resource type="Script" uid="uid://cquqe4f1m1sw6" path="res://addons/godot-xr-tools/objects/snap_zone.gd" id="3_y6xbo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b4xdk"]
+albedo_color = Color(0.39498678, 0.3949867, 0.3949867, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mmokm"]
+material = SubResource("StandardMaterial3D_b4xdk")
+size = Vector3(0.5, 0.8, 0.1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_5gc0y"]
+viewport_path = NodePath("Cadre/Ecran/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_83efv"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = SubResource("ViewportTexture_5gc0y")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_an1qf"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_83efv")
+size = Vector2(0.3, 0.1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_an1qf"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kviu6"]
+
+[sub_resource type="Theme" id="Theme_8dbqv"]
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/line_spacing = -300
+Label/constants/outline_size = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
+Label/font_sizes/font_size = 256
+Label/fonts/font = ExtResource("1_v71du")
+Label/styles/focus = SubResource("StyleBoxFlat_an1qf")
+Label/styles/normal = SubResource("StyleBoxEmpty_kviu6")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_an1qf"]
+points = PackedVector3Array(0.05, 0.05, 0.05, 0.05, 0.05, -0.05, -0.05, 0.05, 0.05, 0.05, -0.05, 0.05, 0.05, -0.05, -0.05, -0.05, 0.05, -0.05, -0.05, -0.05, 0.05, -0.05, -0.05, -0.05)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kviu6"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_y6xbo"]
+viewport_path = NodePath("Cadre/Ecran/Clavier/1/Bouton/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_an1qf"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_y6xbo")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_an1qf"]
+viewport_path = NodePath("Cadre/Ecran/Clavier/2/Bouton/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kviu6"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_an1qf")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_kviu6"]
+viewport_path = NodePath("Cadre/Ecran/Clavier/3/Bouton/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8dbqv"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_kviu6")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_8dbqv"]
+viewport_path = NodePath("Cadre/Ecran/Clavier/4/Bouton/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eyls3"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_8dbqv")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_eyls3"]
+viewport_path = NodePath("Cadre/Ecran/Clavier/5/Bouton/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tasuu"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_eyls3")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_tasuu"]
+viewport_path = NodePath("Cadre/Ecran/Clavier/6/Bouton/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_88apb"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_tasuu")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_88apb"]
+viewport_path = NodePath("Cadre/Ecran/Clavier/7/Bouton/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s4pgu"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_88apb")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_s4pgu"]
+viewport_path = NodePath("Cadre/Ecran/Clavier/8/Bouton/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_08pgk"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_s4pgu")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_08pgk"]
+viewport_path = NodePath("Cadre/Ecran/Clavier/9/Bouton/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pnao2"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_08pgk")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_pnao2"]
+viewport_path = NodePath("Cadre/Ecran/Clavier/0/Bouton/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5gc0y"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_pnao2")
+
+[node name="DigiCode" type="Node3D"]
+
+[node name="Cadre" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_mmokm")
+
+[node name="Ecran" type="MeshInstance3D" parent="Cadre"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.3074435, 0.051)
+mesh = SubResource("PlaneMesh_an1qf")
+
+[node name="SubViewport" type="SubViewport" parent="Cadre/Ecran"]
+transparent_bg = true
+size = Vector2i(900, 300)
+
+[node name="ColorRect" type="ColorRect" parent="Cadre/Ecran/SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.36862746, 1, 1)
+
+[node name="Label" type="Label" parent="Cadre/Ecran/SubViewport"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -243.0
+offset_top = -309.5
+offset_right = 243.0
+offset_bottom = 309.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_8dbqv")
+theme_type_variation = &"GraphFrameTitleLabel"
+text = "2048
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_an1qf")
+
+[node name="Clavier" type="Node3D" parent="Cadre/Ecran"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -0.01087749)
+
+[node name="1" type="Node3D" parent="Cadre/Ecran/Clavier"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, -0.15, 0)
+script = ExtResource("2_b4xdk")
+
+[node name="XRToolsSnapZone" type="Area3D" parent="Cadre/Ecran/Clavier/1"]
+transform = Transform3D(0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0)
+script = ExtResource("3_y6xbo")
+metadata/_custom_type_script = "uid://cquqe4f1m1sw6"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cadre/Ecran/Clavier/1/XRToolsSnapZone"]
+transform = Transform3D(1.679, 0, 0, 0, 1.679, 0, 0, 0, 1.679, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_an1qf")
+
+[node name="Bouton" type="MeshInstance3D" parent="Cadre/Ecran/Clavier/1"]
+mesh = SubResource("BoxMesh_kviu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_an1qf")
+
+[node name="SubViewport" type="SubViewport" parent="Cadre/Ecran/Clavier/1/Bouton"]
+transparent_bg = true
+
+[node name="ColorRect" type="ColorRect" parent="Cadre/Ecran/Clavier/1/Bouton/SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Cadre/Ecran/Clavier/1/Bouton/SubViewport"]
+offset_left = 70.0
+offset_top = 75.0
+offset_right = 103.0
+offset_bottom = 154.0
+theme_override_font_sizes/font_size = 58
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="2" type="Node3D" parent="Cadre/Ecran/Clavier"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, 0)
+script = ExtResource("2_b4xdk")
+
+[node name="XRToolsSnapZone" type="Area3D" parent="Cadre/Ecran/Clavier/2"]
+transform = Transform3D(0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0)
+script = ExtResource("3_y6xbo")
+metadata/_custom_type_script = "uid://cquqe4f1m1sw6"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cadre/Ecran/Clavier/2/XRToolsSnapZone"]
+transform = Transform3D(1.679, 0, 0, 0, 1.679, 0, 0, 0, 1.679, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_an1qf")
+
+[node name="Bouton" type="MeshInstance3D" parent="Cadre/Ecran/Clavier/2"]
+mesh = SubResource("BoxMesh_kviu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_kviu6")
+
+[node name="SubViewport" type="SubViewport" parent="Cadre/Ecran/Clavier/2/Bouton"]
+transparent_bg = true
+
+[node name="ColorRect" type="ColorRect" parent="Cadre/Ecran/Clavier/2/Bouton/SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Cadre/Ecran/Clavier/2/Bouton/SubViewport"]
+offset_left = 70.0
+offset_top = 75.0
+offset_right = 103.0
+offset_bottom = 154.0
+theme_override_font_sizes/font_size = 58
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="3" type="Node3D" parent="Cadre/Ecran/Clavier"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, -0.15, 0)
+script = ExtResource("2_b4xdk")
+
+[node name="XRToolsSnapZone" type="Area3D" parent="Cadre/Ecran/Clavier/3"]
+transform = Transform3D(0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0)
+script = ExtResource("3_y6xbo")
+metadata/_custom_type_script = "uid://cquqe4f1m1sw6"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cadre/Ecran/Clavier/3/XRToolsSnapZone"]
+transform = Transform3D(1.679, 0, 0, 0, 1.679, 0, 0, 0, 1.679, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_an1qf")
+
+[node name="Bouton" type="MeshInstance3D" parent="Cadre/Ecran/Clavier/3"]
+mesh = SubResource("BoxMesh_kviu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_8dbqv")
+
+[node name="SubViewport" type="SubViewport" parent="Cadre/Ecran/Clavier/3/Bouton"]
+transparent_bg = true
+
+[node name="ColorRect" type="ColorRect" parent="Cadre/Ecran/Clavier/3/Bouton/SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Cadre/Ecran/Clavier/3/Bouton/SubViewport"]
+offset_left = 70.0
+offset_top = 75.0
+offset_right = 103.0
+offset_bottom = 154.0
+theme_override_font_sizes/font_size = 58
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="4" type="Node3D" parent="Cadre/Ecran/Clavier"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, -0.3, 0)
+script = ExtResource("2_b4xdk")
+
+[node name="XRToolsSnapZone" type="Area3D" parent="Cadre/Ecran/Clavier/4"]
+transform = Transform3D(0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0)
+script = ExtResource("3_y6xbo")
+metadata/_custom_type_script = "uid://cquqe4f1m1sw6"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cadre/Ecran/Clavier/4/XRToolsSnapZone"]
+transform = Transform3D(1.679, 0, 0, 0, 1.679, 0, 0, 0, 1.679, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_an1qf")
+
+[node name="Bouton" type="MeshInstance3D" parent="Cadre/Ecran/Clavier/4"]
+mesh = SubResource("BoxMesh_kviu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_eyls3")
+
+[node name="SubViewport" type="SubViewport" parent="Cadre/Ecran/Clavier/4/Bouton"]
+transparent_bg = true
+
+[node name="ColorRect" type="ColorRect" parent="Cadre/Ecran/Clavier/4/Bouton/SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Cadre/Ecran/Clavier/4/Bouton/SubViewport"]
+offset_left = 70.0
+offset_top = 75.0
+offset_right = 103.0
+offset_bottom = 154.0
+theme_override_font_sizes/font_size = 58
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="5" type="Node3D" parent="Cadre/Ecran/Clavier"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+script = ExtResource("2_b4xdk")
+
+[node name="XRToolsSnapZone" type="Area3D" parent="Cadre/Ecran/Clavier/5"]
+transform = Transform3D(0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0)
+script = ExtResource("3_y6xbo")
+metadata/_custom_type_script = "uid://cquqe4f1m1sw6"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cadre/Ecran/Clavier/5/XRToolsSnapZone"]
+transform = Transform3D(1.679, 0, 0, 0, 1.679, 0, 0, 0, 1.679, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_an1qf")
+
+[node name="Bouton" type="MeshInstance3D" parent="Cadre/Ecran/Clavier/5"]
+mesh = SubResource("BoxMesh_kviu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_tasuu")
+
+[node name="SubViewport" type="SubViewport" parent="Cadre/Ecran/Clavier/5/Bouton"]
+transparent_bg = true
+
+[node name="ColorRect" type="ColorRect" parent="Cadre/Ecran/Clavier/5/Bouton/SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Cadre/Ecran/Clavier/5/Bouton/SubViewport"]
+offset_left = 70.0
+offset_top = 75.0
+offset_right = 103.0
+offset_bottom = 154.0
+theme_override_font_sizes/font_size = 58
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="6" type="Node3D" parent="Cadre/Ecran/Clavier"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, -0.3, 0)
+script = ExtResource("2_b4xdk")
+
+[node name="XRToolsSnapZone" type="Area3D" parent="Cadre/Ecran/Clavier/6"]
+transform = Transform3D(0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0)
+script = ExtResource("3_y6xbo")
+metadata/_custom_type_script = "uid://cquqe4f1m1sw6"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cadre/Ecran/Clavier/6/XRToolsSnapZone"]
+transform = Transform3D(1.679, 0, 0, 0, 1.679, 0, 0, 0, 1.679, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_an1qf")
+
+[node name="Bouton" type="MeshInstance3D" parent="Cadre/Ecran/Clavier/6"]
+mesh = SubResource("BoxMesh_kviu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_88apb")
+
+[node name="SubViewport" type="SubViewport" parent="Cadre/Ecran/Clavier/6/Bouton"]
+transparent_bg = true
+
+[node name="ColorRect" type="ColorRect" parent="Cadre/Ecran/Clavier/6/Bouton/SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Cadre/Ecran/Clavier/6/Bouton/SubViewport"]
+offset_left = 70.0
+offset_top = 75.0
+offset_right = 103.0
+offset_bottom = 154.0
+theme_override_font_sizes/font_size = 58
+text = "6"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="7" type="Node3D" parent="Cadre/Ecran/Clavier"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, -0.45, 0)
+script = ExtResource("2_b4xdk")
+
+[node name="XRToolsSnapZone" type="Area3D" parent="Cadre/Ecran/Clavier/7"]
+transform = Transform3D(0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0)
+script = ExtResource("3_y6xbo")
+metadata/_custom_type_script = "uid://cquqe4f1m1sw6"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cadre/Ecran/Clavier/7/XRToolsSnapZone"]
+transform = Transform3D(1.679, 0, 0, 0, 1.679, 0, 0, 0, 1.679, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_an1qf")
+
+[node name="Bouton" type="MeshInstance3D" parent="Cadre/Ecran/Clavier/7"]
+mesh = SubResource("BoxMesh_kviu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_s4pgu")
+
+[node name="SubViewport" type="SubViewport" parent="Cadre/Ecran/Clavier/7/Bouton"]
+transparent_bg = true
+
+[node name="ColorRect" type="ColorRect" parent="Cadre/Ecran/Clavier/7/Bouton/SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Cadre/Ecran/Clavier/7/Bouton/SubViewport"]
+offset_left = 70.0
+offset_top = 75.0
+offset_right = 103.0
+offset_bottom = 154.0
+theme_override_font_sizes/font_size = 58
+text = "7"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="8" type="Node3D" parent="Cadre/Ecran/Clavier"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.45, 0)
+script = ExtResource("2_b4xdk")
+
+[node name="XRToolsSnapZone" type="Area3D" parent="Cadre/Ecran/Clavier/8"]
+transform = Transform3D(0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0)
+script = ExtResource("3_y6xbo")
+metadata/_custom_type_script = "uid://cquqe4f1m1sw6"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cadre/Ecran/Clavier/8/XRToolsSnapZone"]
+transform = Transform3D(1.679, 0, 0, 0, 1.679, 0, 0, 0, 1.679, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_an1qf")
+
+[node name="Bouton" type="MeshInstance3D" parent="Cadre/Ecran/Clavier/8"]
+mesh = SubResource("BoxMesh_kviu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_08pgk")
+
+[node name="SubViewport" type="SubViewport" parent="Cadre/Ecran/Clavier/8/Bouton"]
+transparent_bg = true
+
+[node name="ColorRect" type="ColorRect" parent="Cadre/Ecran/Clavier/8/Bouton/SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Cadre/Ecran/Clavier/8/Bouton/SubViewport"]
+offset_left = 70.0
+offset_top = 75.0
+offset_right = 103.0
+offset_bottom = 154.0
+theme_override_font_sizes/font_size = 58
+text = "8"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="9" type="Node3D" parent="Cadre/Ecran/Clavier"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, -0.45, 0)
+script = ExtResource("2_b4xdk")
+
+[node name="XRToolsSnapZone" type="Area3D" parent="Cadre/Ecran/Clavier/9"]
+transform = Transform3D(0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0)
+script = ExtResource("3_y6xbo")
+metadata/_custom_type_script = "uid://cquqe4f1m1sw6"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cadre/Ecran/Clavier/9/XRToolsSnapZone"]
+transform = Transform3D(1.6789999, 0, 0, 0, 1.6789998, 0.0008205142, 0, -0.0008205142, 1.6789998, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_an1qf")
+
+[node name="Bouton" type="MeshInstance3D" parent="Cadre/Ecran/Clavier/9"]
+mesh = SubResource("BoxMesh_kviu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_pnao2")
+
+[node name="SubViewport" type="SubViewport" parent="Cadre/Ecran/Clavier/9/Bouton"]
+transparent_bg = true
+
+[node name="ColorRect" type="ColorRect" parent="Cadre/Ecran/Clavier/9/Bouton/SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Cadre/Ecran/Clavier/9/Bouton/SubViewport"]
+offset_left = 70.0
+offset_top = 75.0
+offset_right = 103.0
+offset_bottom = 154.0
+theme_override_font_sizes/font_size = 58
+text = "9"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="0" type="Node3D" parent="Cadre/Ecran/Clavier"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0)
+script = ExtResource("2_b4xdk")
+
+[node name="XRToolsSnapZone" type="Area3D" parent="Cadre/Ecran/Clavier/0"]
+transform = Transform3D(0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0)
+script = ExtResource("3_y6xbo")
+metadata/_custom_type_script = "uid://cquqe4f1m1sw6"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cadre/Ecran/Clavier/0/XRToolsSnapZone"]
+transform = Transform3D(1.679, 0, 0, 0, 1.679, 0, 0, 0, 1.679, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_an1qf")
+
+[node name="Bouton" type="MeshInstance3D" parent="Cadre/Ecran/Clavier/0"]
+mesh = SubResource("BoxMesh_kviu6")
+surface_material_override/0 = SubResource("StandardMaterial3D_5gc0y")
+
+[node name="SubViewport" type="SubViewport" parent="Cadre/Ecran/Clavier/0/Bouton"]
+transparent_bg = true
+
+[node name="ColorRect" type="ColorRect" parent="Cadre/Ecran/Clavier/0/Bouton/SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Cadre/Ecran/Clavier/0/Bouton/SubViewport"]
+offset_left = 70.0
+offset_top = 75.0
+offset_right = 103.0
+offset_bottom = 154.0
+theme_override_font_sizes/font_size = 58
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://da7hs5x7tnou5"]
+
+[ext_resource type="PackedScene" uid="uid://diahscvdalfxm" path="res://Objects/old-chair/source/Chair_03.fbx" id="1_qnu0r"]
+[ext_resource type="Texture2D" uid="uid://b6xsv3s1ma1jb" path="res://Objects/old-chair/textures/T_Chair_03_BaseColor.png" id="2_0vujm"]
+[ext_resource type="Texture2D" uid="uid://csks3826faj78" path="res://Objects/old-chair/textures/T_Chair_03_Normal.png" id="3_b7bog"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pj67c"]
+albedo_texture = ExtResource("2_0vujm")
+normal_enabled = true
+normal_texture = ExtResource("3_b7bog")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0vujm"]
+points = PackedVector3Array(-0.0012808122, 0.007303251, 0.009683748, -0.005943988, -0.008479366, 0.008966849, -0.0052255797, 0.0069451174, -0.011479366, 0.006968647, -0.007043532, -0.011479366, 0.007328571, 0.0069451174, -0.0039463127, -0.0052255797, -0.007041882, -0.011479366, -0.007019441, 0.0080211675, 0.01076022, 0.0051747854, -0.007043532, 0, 0.006968647, 0.0069451174, -0.011479366, -0.0027147494, -0.008117932, 0.011119792, -0.007379365, -0.0066837487, 0.010402894, -0.003433158, 0.008380951, 0.011119792, 0.007328571, -0.007043532, -0.0039463127, -0.007379365, 0.005510934, 0.008966849, -0.005943988, -0.007761449, 0.011479366, 0.0048163007, 0.0065869843, 0.0007168985, -0.0012808122, -0.0074016657, 0.009683748, -0.005943988, 0.008380951, 0.008247703, 0.006968647, 0.007303251, -0.008607277, -0.005584064, -0.0066837487, -0.008966849, -0.0030746735, -0.008479366, 0.01076022, 0.007328571, -0.007043532, -0.008966849, -0.003433158, 0.0076630344, 0.011479366, -0.0052255797, 0.007303251, -0.008607277, -0.007019441, -0.008117932, 0.01076022, -0.005584064, 0.0069451174, -0.008966849, -0.007379365, -0.00022579839, 0.008607277, -0.005943988, 0.0076630344, 0.011479366, 0.007328571, 0.0069451174, -0.008966849, -0.007379365, 0.0065869843, 0.01076022, -0.0027147494, 0.008380951, 0.01076022, 0.0048163007, -0.0066837487, 0.0007168985)
+
+[node name="Chair_03" instance=ExtResource("1_qnu0r")]
+
+[node name="Cube_1629" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_pj67c")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube_1629" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_1629/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_0vujm")

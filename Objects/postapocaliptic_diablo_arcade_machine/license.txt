@@ -1,0 +1,8 @@
+Model Information:
+* title:	Postapocaliptic Diablo Arcade Machine
+* source:	https://sketchfab.com/3d-models/postapocaliptic-diablo-arcade-machine-af1b2cf55ea74cb895fd0e73ab8bda6c
+* author:	Giuliano Bianco (https://sketchfab.com/Zauron93)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works

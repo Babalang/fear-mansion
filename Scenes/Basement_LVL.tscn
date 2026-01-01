@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ca00ksh8lilio" path="res://Scenes/basement_lvl.gd" id="1_kqjss"]
 [ext_resource type="PackedScene" uid="uid://cfvmog285pj76" path="res://Objects/Ruined_Sofa/post_apocalyptic_ruined_sofa.glb" id="2_k3d0m"]
 [ext_resource type="ArrayMesh" uid="uid://b2wqds7wlxfp3" path="res://Objects/Endoskeleton/Endoskeleton.obj" id="3_iw15y"]
-[ext_resource type="Shader" path="res://skybox.gdshader" id="4_k3d0m"]
+[ext_resource type="Shader" uid="uid://bsmv1ry0np6wp" path="res://Shaders/skybox.gdshader" id="4_k3d0m"]
 [ext_resource type="PackedScene" uid="uid://we35fgi6k13o" path="res://Blueprints/player.tscn" id="6_xuwdi"]
 [ext_resource type="PackedScene" uid="uid://cqppbfh2ilvou" path="res://Scenes/manoir_f.tscn" id="7_kqjss"]
 

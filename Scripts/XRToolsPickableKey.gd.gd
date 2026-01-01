@@ -6,11 +6,14 @@ signal snapped(point: Node3D)
 
 @export var snap_point: Node3D
 @export var snap_radius: float = 1.0
+var texte : MeshInstance3D = null
 var _snap_mesh: MeshInstance3D = null
 var _snap_highlighted: bool = false
 var is_snapped: bool = false
 
+
 func _ready():
+	texte = get_node_or_null("Texte")
 	# Copier ce qui était dans _ready() du parent
 	for child in get_children():
 		var grab_point := child as XRToolsGrabPoint
@@ -21,6 +24,7 @@ func _ready():
 	if snap_point:
 		_snap_mesh = snap_point.get_node_or_null("serrure")
 		set_physics_process(true)
+	picked_up.connect(_on_picked_up)
 
 func let_go(by: Node3D, linear_velocity: Vector3, angular_velocity: Vector3) -> void:
 	super.let_go(by, linear_velocity, angular_velocity)
@@ -31,6 +35,8 @@ func let_go(by: Node3D, linear_velocity: Vector3, angular_velocity: Vector3) -> 
 	var dist := global_position.distance_to(snap_point.global_position)
 	if dist <= snap_radius:
 		snap_to_point(snap_point)
+	else :
+		texte.visible = true
 
 func snap_to_point(point: Node3D):
 	global_transform = point.global_transform
@@ -73,3 +79,7 @@ func _process(_delta):
 		_enable_snap_highlight()
 	else:
 		_clear_snap_highlight()
+
+func _on_picked_up(_pickable):
+	if texte:
+		texte.visible = false

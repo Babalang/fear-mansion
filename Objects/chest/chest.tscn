@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4pq66f837vv2"]
+
+[ext_resource type="PackedScene" uid="uid://cifd3hihl35mj" path="res://Objects/chest/model.dae" id="1_d7pkw"]
+[ext_resource type="Material" uid="uid://bvdycynhh8xs4" path="res://Objects/chest/Drewno_mat.tres" id="2_38mye"]
+[ext_resource type="Material" uid="uid://csumud0x7xba5" path="res://Objects/chest/Metal.tres" id="3_v50lr"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_v50lr"]
+points = PackedVector3Array(-0.001955721, -0.0006777779, 0.0011104154, -0.006844259, -0.00085559045, -0.0024437485, -0.007466254, -0.0041444446, -0.0022662838, -0.0076444442, -0.0006777779, 0.0011104154, -0.0021339112, -0.0041444446, 0.001021683, -0.0021339112, -0.0041444446, -0.0022662838, -0.001955721, -0.0006777779, -0.0023550163, -0.007466254, -0.0041444446, 0.001021683, -0.0076444442, -0.0006777779, -0.0023550163, -0.0027559064, -0.0006777779, -0.0024437485, -0.0076444442, -0.00085559045, 0.0011104154, -0.001955721, -0.00085559045, 0.0011104154, -0.0076444442, -0.00094449683, -0.0010219438, -0.0027559064, -0.00085559045, -0.0024437485, -0.001955721, -0.00085559045, -0.0023550163, -0.0076444442, -0.00085559045, -0.0023550163, -0.00639934, -0.0006777779, -0.0024437485, -0.0076444442, -0.00094449683, -0.00022265711)
+
+[node name="model" instance=ExtResource("1_d7pkw")]
+
+[node name="Drewno_LP" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_38mye")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Drewno_LP" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Drewno_LP/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_v50lr")
+
+[node name="Metal_LP" parent="." index="1"]
+surface_material_override/0 = ExtResource("3_v50lr")

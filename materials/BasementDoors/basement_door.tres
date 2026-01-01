@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d1yb168xsk2bk" path="res://materials/BasementDoors/BasementDoors_Roughness.png" id="4_rn226"]
 
 [resource]
+cull_mode = 2
 albedo_texture = ExtResource("1_rf7gs")
 metallic = 1.0
 metallic_texture = ExtResource("2_3xjo6")

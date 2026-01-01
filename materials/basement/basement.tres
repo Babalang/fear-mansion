@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dl550na3okejl" path="res://materials/basement/Basement_Roughness.png" id="3_1bpjq"]
 
 [resource]
+cull_mode = 2
 albedo_texture = ExtResource("1_2hryl")
 roughness_texture = ExtResource("3_1bpjq")
 normal_enabled = true

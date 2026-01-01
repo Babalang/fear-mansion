@@ -1,6 +1,6 @@
 extends XRController3D
 
-@export var raycast: RayCast3D
+@onready var raycast = $RayCast3D
 var feedback_label: Label = null
 
 func _ready() -> void:
@@ -12,7 +12,11 @@ func _physics_process(delta: float) -> void:
 		var collider = raycast.get_collider()
 		var door = collider.get_parent()
 		if door:
-			door_name = door.get_parent().name
+			if door.get_parent().name != "Clavier":
+				door_name = door.get_parent().name
+			else :
+				door_name = door.name
+			
 			if door.has_method("get_hint_text"):
 				Global.emit_signal("display_txt", door.get_hint_text())
 	else:
@@ -27,6 +31,7 @@ func _on_button_pressed(button_name: String) -> void:
 		return
 	var collider = raycast.get_collider()
 	var door = collider.get_parent()
+	print(door.name)
 	if door and door.has_method("process_interaction"):
 		door.process_interaction()
 	

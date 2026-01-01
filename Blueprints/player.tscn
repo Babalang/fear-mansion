@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://we35fgi6k13o"]
+[gd_scene load_steps=25 format=3 uid="uid://we35fgi6k13o"]
 
 [ext_resource type="Script" uid="uid://cm01a7m6j1nu2" path="res://Scripts/left_hand.gd" id="1_f1l26"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="2_26jkg"]
@@ -13,6 +13,7 @@
 [ext_resource type="ArrayMesh" uid="uid://c1mayy8xjjpak" path="res://Objects/Flashlight/Flashlight.obj" id="6_f1l26"]
 [ext_resource type="PackedScene" uid="uid://hdkjhcpxgeof" path="res://Objects/apples_smart_watch_ios/scene.gltf" id="8_kx678"]
 [ext_resource type="Texture2D" uid="uid://ceryjer2l0uo" path="res://Textures/Battery/battery_empty.png" id="9_kx678"]
+[ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="13_1pbwj"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_22nbg"]
 viewport_path = NodePath("XROrigin3D/LeftHand/LeftHand/displayer/SubViewport")
@@ -31,10 +32,13 @@ size = Vector2(10, 2)
 font_size = 50
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eni5h"]
-blend_mode = 3
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.039215688)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_eni5h"]
 material = SubResource("StandardMaterial3D_eni5h")
+top_radius = 0.25
+bottom_radius = 0.25
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aoko6"]
 albedo_texture = ExtResource("5_10pjn")
@@ -57,10 +61,9 @@ material = SubResource("StandardMaterial3D_22nbg")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
 
-[node name="LeftHand" type="XRController3D" parent="XROrigin3D" node_paths=PackedStringArray("raycast")]
+[node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
 tracker = &"left_hand"
 script = ExtResource("1_f1l26")
-raycast = NodePath("RayCast3D")
 
 [node name="FunctionPickup" parent="XROrigin3D/LeftHand" instance=ExtResource("2_26jkg")]
 grab_collision_mask = 329732
@@ -93,23 +96,23 @@ label_settings = SubResource("LabelSettings_u52ks")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="MovementDirect" parent="XROrigin3D/LeftHand/LeftHand" instance=ExtResource("3_wqhxr")]
+max_speed = 5.0
+strafe = true
+
 [node name="RayCast3D" type="RayCast3D" parent="XROrigin3D/LeftHand"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0, 0)
 target_position = Vector3(0, 0, -4)
 collide_with_areas = true
 collide_with_bodies = false
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/LeftHand/RayCast3D"]
+[node name="Reticle" type="MeshInstance3D" parent="XROrigin3D/LeftHand/RayCast3D"]
 transform = Transform3D(0.01, 0, 0, 0, -8.273064e-08, -0.009999986, 0, 1.8926561, -4.371132e-10, 0, 0, -1.964933)
 mesh = SubResource("CylinderMesh_eni5h")
 
 [node name="RightHand" type="XRController3D" parent="XROrigin3D"]
 tracker = &"right_hand"
 script = ExtResource("4_u52ks")
-
-[node name="MovementDirect" parent="XROrigin3D/RightHand" instance=ExtResource("3_wqhxr")]
-max_speed = 5.0
-strafe = true
 
 [node name="FunctionPickup" parent="XROrigin3D/RightHand" instance=ExtResource("2_26jkg")]
 grab_collision_mask = 329732
@@ -120,7 +123,7 @@ grab_collision_mask = 329732
 script = ExtResource("6_aoko6")
 
 [node name="Light" type="SpotLight3D" parent="XROrigin3D/RightHand/RightHand/Torche"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.15)
 light_color = Color(1, 0.7647059, 0.5294118, 1)
 light_energy = 5.0
 light_volumetric_fog_energy = 0.0
@@ -239,6 +242,9 @@ text = "100 %"
 label_settings = SubResource("LabelSettings_u52ks")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MovementTurn" parent="XROrigin3D/RightHand/RightHand" instance=ExtResource("13_1pbwj")]
+turn_mode = 2
 
 [node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("3_26jkg")]
 floor_constant_speed = true

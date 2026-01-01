@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bwwow8h2vju3o" path="res://materials/Plank/Plank_Roughness.png" id="3_mw28p"]
 
 [resource]
+cull_mode = 2
 albedo_texture = ExtResource("1_k063s")
 roughness_texture = ExtResource("3_mw28p")
 normal_enabled = true

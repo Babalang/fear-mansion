@@ -1,0 +1,84 @@
+[gd_scene load_steps=11 format=3 uid="uid://cmf458dvn23e8"]
+
+[ext_resource type="PackedScene" uid="uid://52dpn4pyqgps" path="res://Objects/business_table_collection/scene.gltf" id="1_jrhvy"]
+[ext_resource type="Script" uid="uid://doxjdnmf551eh" path="res://Scripts/drawer_point.gd" id="2_0bxm8"]
+[ext_resource type="PackedScene" uid="uid://bf674eeb64y73" path="res://Blueprints/Paper.tscn" id="4_0rkaw"]
+[ext_resource type="Script" uid="uid://cquqe4f1m1sw6" path="res://addons/godot-xr-tools/objects/snap_zone.gd" id="6_onoqr"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_jrhvy"]
+points = PackedVector3Array(29.3547, -0.09311101, 20.5, -27.824728, -26, -14.343714, -27.732897, -25.958393, 20.5, -27.938404, 0, -14.412985, 29.446531, -26, -14.343714, 29.560207, 0, -14.412985, 29.3547, -25.958393, 20.5, -27.732897, -0.09311101, 20.5)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_1ur2d"]
+viewport_path = NodePath("Sketchfab_model/db5c903aa2f4459c8f46a0b1bebd84f4_fbx/Object_2/RootNode/Secretary/Drawer/UI_Pivot/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q8uqo"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = SubResource("ViewportTexture_1ur2d")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pwgvr"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_q8uqo")
+size = Vector2(8, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4syc2"]
+font_size = 40
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_u78vx"]
+points = PackedVector3Array(8.690779, -5.5, -18.30951, 9.25, 5.3606577, 15.421395, 4.9383783, 0.8395654, 19.32292, -9.25, 5.49071, -18.719076, -9.045217, -5.5, 15.445512, -9.25, 5.49071, 15.791014, 9.25, 5.3606577, -18.277342, -9.045217, -5.5, -18.30951, 9.25, -5.491514, 15.421395, -4.7192993, -0.9704219, 19.32292, 8.311912, 5.5, -18.750376, 9.024239, 0.23078592, -19.021, 9.25, -5.491514, -18.277342, 4.33501, -0.9704219, 19.32292, -4.7192993, 0.8395654, 19.32292, 4.9383783, -0.36634424, 19.32292)
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_jrhvy")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/db5c903aa2f4459c8f46a0b1bebd84f4_fbx/Object_2/RootNode/Secretary/Secretary_Secretary1_0" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/db5c903aa2f4459c8f46a0b1bebd84f4_fbx/Object_2/RootNode/Secretary/Secretary_Secretary1_0/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_jrhvy")
+
+[node name="Drawer" parent="Sketchfab_model/db5c903aa2f4459c8f46a0b1bebd84f4_fbx/Object_2/RootNode/Secretary" index="1"]
+script = ExtResource("2_0bxm8")
+
+[node name="Paper" parent="Sketchfab_model/db5c903aa2f4459c8f46a0b1bebd84f4_fbx/Object_2/RootNode/Secretary/Drawer/Drawer_Drawer2_0" index="0" instance=ExtResource("4_0rkaw")]
+transform = Transform3D(19.999998, 0, 0, 0, 19.999998, 0, 0, 0, 19.999998, 0, -4.755215, 14.452127)
+paper_text = "12 octobre — Nuit
+Depuis deux jours, les mêmes phénomènes reviennent, toujours par paires. 
+Deux coups contre les murs, deux ombres qui passent dans l’angle de ma vision, deux portes qui se referment en même temps alors qu’il n’y a pas un souffle d’air.
+Ce soir, en marchant, j'ai entendu deux échos derrière moi, comme si quelque chose imitait ma marche… mais avec un léger retard.
+Dans la chambre d’amis, deux empreintes de pas sur le tapis, ensanglantées.
+Je ne sais pas ce que signifie ce chiffre, mais il revient partout.
+Deux. Toujours deux.
+Je commence à croire que le manoir n’est pas vide.
+Ou alors… qu’il ne veut pas que je sois seul.
+Si quelqu’un lit cette page : souvenez-vous du chiffre.
+Il est important.
+Il est partout."
+text_color = Color(1, 0, 0, 1)
+
+[node name="Folders" parent="Sketchfab_model/db5c903aa2f4459c8f46a0b1bebd84f4_fbx/Object_2/RootNode/Secretary/Drawer" index="1"]
+visible = false
+
+[node name="UI_Pivot" type="MeshInstance3D" parent="Sketchfab_model/db5c903aa2f4459c8f46a0b1bebd84f4_fbx/Object_2/RootNode/Secretary/Drawer" index="2"]
+transform = Transform3D(5, 0, 0, 0, 1.9295304, -4.6126904, 0, 4.6126904, 1.9295304, -0.39884186, 10.751494, 17.236303)
+mesh = SubResource("PlaneMesh_pwgvr")
+skeleton = NodePath("../..")
+
+[node name="SubViewport" type="SubViewport" parent="Sketchfab_model/db5c903aa2f4459c8f46a0b1bebd84f4_fbx/Object_2/RootNode/Secretary/Drawer/UI_Pivot" index="0"]
+transparent_bg = true
+size = Vector2i(512, 128)
+
+[node name="Label" type="Label" parent="Sketchfab_model/db5c903aa2f4459c8f46a0b1bebd84f4_fbx/Object_2/RootNode/Secretary/Drawer/UI_Pivot/SubViewport" index="0"]
+visible = false
+offset_right = 40.0
+offset_bottom = 55.0
+text = "hello"
+label_settings = SubResource("LabelSettings_4syc2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="XRToolsSnapZone" type="Area3D" parent="Sketchfab_model/db5c903aa2f4459c8f46a0b1bebd84f4_fbx/Object_2/RootNode/Secretary/Drawer" index="3"]
+transform = Transform3D(0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0)
+script = ExtResource("6_onoqr")
+metadata/_custom_type_script = "uid://cquqe4f1m1sw6"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/db5c903aa2f4459c8f46a0b1bebd84f4_fbx/Object_2/RootNode/Secretary/Drawer/XRToolsSnapZone" index="0"]
+transform = Transform3D(1.679, 0, 0, 0, 1.679, 0, 0, 0, 1.679, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_u78vx")

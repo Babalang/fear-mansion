@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cnipyki6fkpqe" path="res://materials/Ground/material_sol_Roughness.png" id="3_yhlmh"]
 
 [resource]
+cull_mode = 2
 albedo_texture = ExtResource("1_u0xyw")
 roughness_texture = ExtResource("3_yhlmh")
 normal_enabled = true
