@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bi5s0kidae0le"]
+
+[ext_resource type="PackedScene" uid="uid://k84b1ky5uvm5" path="res://Objects/rusty/oldcar.FBX" id="1_ktq83"]
+
+[node name="oldcar" instance=ExtResource("1_ktq83")]

@@ -1,0 +1,53 @@
+[gd_scene load_steps=12 format=3 uid="uid://cqjbyb7urnxyd"]
+
+[ext_resource type="PackedScene" uid="uid://dqgbaprbxckge" path="res://Objects/Table/Table.fbx" id="1_q23qb"]
+[ext_resource type="Texture2D" uid="uid://bwnejl3u3ow6w" path="res://Objects/Table/Table_Old wood_BaseColor.png" id="2_rqa07"]
+[ext_resource type="Texture2D" uid="uid://cayjohodtgy2n" path="res://Objects/Table/Table_Old wood_OcclusionRoughnessMetallic.png" id="3_74r50"]
+[ext_resource type="Texture2D" uid="uid://gkk3nmls4iiv" path="res://Objects/Table/Table_Old wood_Normal.png" id="4_ne7vo"]
+[ext_resource type="Texture2D" uid="uid://boco503pyf22v" path="res://Objects/Table/Table_Old wood2_BaseColor.png" id="5_3xfa5"]
+[ext_resource type="Texture2D" uid="uid://bx845g2fcdwn6" path="res://Objects/Table/Table_Old wood2_OcclusionRoughnessMetallic.png" id="6_dnatt"]
+[ext_resource type="Texture2D" uid="uid://bc1eyn16ged5l" path="res://Objects/Table/Table_Old wood2_Normal.png" id="7_g5nu5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ive8"]
+albedo_texture = ExtResource("2_rqa07")
+metallic = 1.0
+metallic_texture = ExtResource("3_74r50")
+roughness_texture = ExtResource("3_74r50")
+normal_enabled = true
+normal_texture = ExtResource("4_ne7vo")
+ao_enabled = true
+ao_texture = ExtResource("3_74r50")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o6jgp"]
+albedo_texture = ExtResource("5_3xfa5")
+metallic = 1.0
+metallic_texture = ExtResource("6_dnatt")
+roughness_texture = ExtResource("6_dnatt")
+normal_enabled = true
+normal_texture = ExtResource("7_g5nu5")
+ao_enabled = true
+ao_texture = ExtResource("6_dnatt")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_q23qb"]
+points = PackedVector3Array(-0.020999905, -0.040788963, 0.008690474, -0.020999905, 0.040788963, 0.008690474, -0.02076264, 0.04075801, -0.022534285, 0.020934066, -0.04075801, -0.022534285, 0.020998633, -0.040454887, 0.008563297, 0.020934066, 0.04075801, -0.022534285, -0.02076264, -0.04075801, -0.022534285, 0.020998633, 0.040454887, 0.008563297, 0.020696072, -0.040763576, -0.014942447, 0.020696072, 0.040763576, -0.014942447)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rqa07"]
+points = PackedVector3Array(0.023793653, 0.043298308, 0.010495238, -0.023698412, -0.043298308, 0.007701587, -0.022299126, -0.044698417, 0.007701587, 0.022394367, 0.044698417, 0.007701587, -0.023698412, 0.043298308, 0.010495238, 0.022394367, -0.044698417, 0.010495238, 0.023793653, -0.043298308, 0.007701587, -0.023698412, -0.043298308, 0.010495238, -0.023698412, 0.043298308, 0.007701587, -0.022299126, 0.044698417, 0.010495238, 0.023793653, -0.043298308, 0.010495238, 0.023793653, 0.043298308, 0.007701587, -0.022299126, 0.044698417, 0.007701587, 0.022394367, -0.044698417, 0.007701587, -0.022299126, -0.044698417, 0.010495238, 0.022394367, 0.044698417, 0.010495238)
+
+[node name="Table" instance=ExtResource("1_q23qb")]
+
+[node name="Table" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_1ive8")
+
+[node name="Table2" parent="Table" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_o6jgp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Table/Table2" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table/Table2/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_q23qb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Table" index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_rqa07")

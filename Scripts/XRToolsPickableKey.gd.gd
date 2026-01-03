@@ -6,6 +6,7 @@ signal snapped(point: Node3D)
 
 @export var snap_point: Node3D
 @export var snap_radius: float = 1.0
+@export var display : bool = true
 var texte : MeshInstance3D = null
 var _snap_mesh: MeshInstance3D = null
 var _snap_highlighted: bool = false
@@ -13,7 +14,10 @@ var is_snapped: bool = false
 
 
 func _ready():
-	texte = get_node_or_null("Texte")
+	if display :
+		texte = get_node_or_null("Texte")
+	else : 
+		$Texte.visible = false
 	# Copier ce qui était dans _ready() du parent
 	for child in get_children():
 		var grab_point := child as XRToolsGrabPoint
@@ -36,7 +40,8 @@ func let_go(by: Node3D, linear_velocity: Vector3, angular_velocity: Vector3) -> 
 	if dist <= snap_radius:
 		snap_to_point(snap_point)
 	else :
-		texte.visible = true
+		if texte :
+			texte.visible = true
 
 func snap_to_point(point: Node3D):
 	global_transform = point.global_transform

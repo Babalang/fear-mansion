@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://bhldbes3x0mgc" path="res://Scripts/set_color_label.gd" id="8_dlmsn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ujl5n"]
-size = Vector3(0.25, 0.25, 0.25)
+size = Vector3(0.5, 0.5, 0.5)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u6a6o"]
 resource_name = "lambert1"
@@ -79,11 +79,11 @@ font_color = Color(0, 1, 0, 1)
 
 [node name="Key" instance=ExtResource("1_f2rix")]
 collision_layer = 2048
-freeze = true
 linear_damp = 4.0
 angular_damp = 4.0
 script = ExtResource("2_dlmsn")
 snap_radius = 1.0
+display = null
 
 [node name="CollisionShape3D" parent="." index="0"]
 shape = SubResource("BoxShape3D_ujl5n")

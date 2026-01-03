@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cmf458dvn23e8"]
+[gd_scene load_steps=12 format=3 uid="uid://cmf458dvn23e8"]
 
 [ext_resource type="PackedScene" uid="uid://52dpn4pyqgps" path="res://Objects/business_table_collection/scene.gltf" id="1_jrhvy"]
 [ext_resource type="Script" uid="uid://doxjdnmf551eh" path="res://Scripts/drawer_point.gd" id="2_0bxm8"]
+[ext_resource type="Script" uid="uid://cpcf7g8iipk1v" path="res://Scripts/desk.gd" id="2_q8uqo"]
 [ext_resource type="PackedScene" uid="uid://bf674eeb64y73" path="res://Blueprints/Paper.tscn" id="4_0rkaw"]
 [ext_resource type="Script" uid="uid://cquqe4f1m1sw6" path="res://addons/godot-xr-tools/objects/snap_zone.gd" id="6_onoqr"]
 
@@ -28,6 +29,7 @@ font_size = 40
 points = PackedVector3Array(8.690779, -5.5, -18.30951, 9.25, 5.3606577, 15.421395, 4.9383783, 0.8395654, 19.32292, -9.25, 5.49071, -18.719076, -9.045217, -5.5, 15.445512, -9.25, 5.49071, 15.791014, 9.25, 5.3606577, -18.277342, -9.045217, -5.5, -18.30951, 9.25, -5.491514, 15.421395, -4.7192993, -0.9704219, 19.32292, 8.311912, 5.5, -18.750376, 9.024239, 0.23078592, -19.021, 9.25, -5.491514, -18.277342, 4.33501, -0.9704219, 19.32292, -4.7192993, 0.8395654, 19.32292, 4.9383783, -0.36634424, 19.32292)
 
 [node name="Sketchfab_Scene" instance=ExtResource("1_jrhvy")]
+script = ExtResource("2_q8uqo")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/db5c903aa2f4459c8f46a0b1bebd84f4_fbx/Object_2/RootNode/Secretary/Secretary_Secretary1_0" index="0"]
 

@@ -2,6 +2,8 @@ extends XRController3D
 
 @onready var raycast = $RayCast3D
 var feedback_label: Label = null
+var last_hovered: Node = null
+
 
 func _ready() -> void:
 	connect("button_pressed", Callable(self, "_on_button_pressed"))
@@ -16,8 +18,10 @@ func _physics_process(delta: float) -> void:
 				door_name = door.get_parent().name
 			else :
 				door_name = door.name
-			
 			if door.has_method("get_hint_text"):
+				if door != last_hovered:
+					last_hovered = door
+					trigger_haptic_pulse("haptic",0.05,20.0,0.1,0.0)
 				Global.emit_signal("display_txt", door.get_hint_text())
 	else:
 		Global.emit_signal("display_txt", "")

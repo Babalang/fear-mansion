@@ -1,0 +1,11 @@
+Model Information:
+* title:	rusty kitchen equipment
+* source:	https://sketchfab.com/3d-models/rusty-kitchen-equipment-0566dbf482144d0a9a76e65ef8d268e8
+* author:	Slepa (https://sketchfab.com/Slepskiy)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "rusty kitchen equipment" (https://sketchfab.com/3d-models/rusty-kitchen-equipment-0566dbf482144d0a9a76e65ef8d268e8) by Slepa (https://sketchfab.com/Slepskiy) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

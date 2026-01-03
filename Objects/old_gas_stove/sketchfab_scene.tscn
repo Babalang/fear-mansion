@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbbasc2qwh0fg"]
+
+[ext_resource type="PackedScene" uid="uid://cxmw2qvaa6wfi" path="res://Objects/old_gas_stove/scene.gltf" id="1_2nmyq"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_abek6"]
+points = PackedVector3Array(-237.47064, -328.42578, 726.3606, 237.47063, -328.42578, 726.3606, -237.47064, -328.42578, 733.0168, -247.55287, -328.24124, 726.11096, -250.00002, -322.95105, 8.56989, 237.47063, -328.42578, 733.0168, 249.99998, -322.95105, 8.56989, 247.45494, -328.24124, 726.11096, -237.47064, -312.6167, 836.5211, -247.55287, -310.58676, 838.1852, -250.00002, -300.00638, 850, -250.00002, -322.95105, 167.90329, -250.00002, -300.00638, 0, 237.47063, -312.6167, 836.5211, 249.99998, -300.00638, 0, 249.99998, -322.95105, 167.90329, 249.99998, -300.00638, 850, 247.45494, -310.58676, 838.1852, -250.00002, 300, 850, -250.00002, 300, 0, 249.99998, 300, 0, 249.99998, 300, 850)
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_2nmyq")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/ccacdd7bfd8041b082d05b6cf8dbb60e_fbx/RootNode/body/Object_4/body__0" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/ccacdd7bfd8041b082d05b6cf8dbb60e_fbx/RootNode/body/Object_4/body__0/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_abek6")
