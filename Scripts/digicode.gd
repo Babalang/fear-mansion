@@ -3,6 +3,13 @@ extends Node3D
 var button : MeshInstance3D = null
 var label : Label = null
 var original_mat : Material = null
+@export var play_sounds := true
+@export var beep_sound: AudioStream
+var beep_player: AudioStreamPlayer3D
+@export var correct_sound : AudioStream
+var correct_player : AudioStreamPlayer3D
+@export var wrong_sound : AudioStream
+var wrong_player : AudioStreamPlayer3D
 
 func _ready():
 	button = get_node_or_null("Bouton")
@@ -10,7 +17,41 @@ func _ready():
 	label.text = self.name
 	original_mat = button.get_active_material(0)
 	Global.connect("in_ray", interact)
+	_setup_audio()
 
+func _setup_audio():
+	if not play_sounds:
+		return
+	if beep_sound == null:
+		beep_sound = Global.DEFAULT_BEEP_SOUND
+	if beep_sound:
+		beep_player = AudioStreamPlayer3D.new()
+		beep_player.stream = beep_sound
+		beep_player.unit_size = 1.0
+		beep_player.max_distance = 10.0
+		beep_player.attenuation_filter_cutoff_hz = 8000
+		beep_player.bus = "SFX"
+		add_child(beep_player)
+	if correct_sound == null:
+		correct_sound = Global.DEFAULT_CORRECT_SOUND
+	if correct_sound:
+		correct_player = AudioStreamPlayer3D.new()
+		correct_player.stream = correct_sound
+		correct_player.unit_size = 1.0
+		correct_player.max_distance = 10.0
+		correct_player.attenuation_filter_cutoff_hz = 8000
+		correct_player.bus = "SFX"
+		add_child(correct_player)
+	if wrong_sound == null:
+		wrong_sound = Global.DEFAULT_WRONG_SOUND
+	if wrong_sound:
+		wrong_player = AudioStreamPlayer3D.new()
+		wrong_player.stream = wrong_sound
+		wrong_player.unit_size = 1.0
+		wrong_player.max_distance = 10.0
+		wrong_player.attenuation_filter_cutoff_hz = 8000
+		wrong_player.bus = "SFX"
+		add_child(wrong_player)
 
 func interact(name1: String):
 	if name1 == self.name:
@@ -32,8 +73,15 @@ func clear_highlight():
 
 
 func process_interaction():
-	if Global.digicode.length() >= 4:
-		Global.digicode = ""
+	if play_sounds and beep_sound :
+		beep_player.play()
 	Global.digicode += self.name
 	if Global.digicode == Global.code_first_floor:
+		if play_sounds and correct_sound:
+			correct_player.play()
 		Global.emit_signal("Open_first_floor")
+	else :
+		if Global.digicode.length() >= 4:
+			Global.digicode = ""
+			if play_sounds and wrong_sound:
+				wrong_player.play()

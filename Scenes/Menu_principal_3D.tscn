@@ -1,0 +1,140 @@
+[gd_scene load_steps=19 format=3 uid="uid://dodwy6i6l4k4u"]
+
+[ext_resource type="Script" uid="uid://bk7u865shkp34" path="res://Scripts/left_hand_menu.gd" id="1_u6nff"]
+[ext_resource type="Script" uid="uid://ca00ksh8lilio" path="res://Scenes/basement_lvl.gd" id="1_ue32g"]
+[ext_resource type="PackedScene" uid="uid://njx823gyk04n" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_hand.tscn" id="3_0eknr"]
+[ext_resource type="PackedScene" uid="uid://dvm02pg2bwx23" path="res://Scenes/Menu_Principal.tscn" id="5_uowuk"]
+[ext_resource type="PackedScene" uid="uid://cqppbfh2ilvou" path="res://Scenes/manoir_f.tscn" id="6_47j5s"]
+[ext_resource type="Script" uid="uid://b06uptpixdgr" path="res://Scripts/mesh_instance_3d.gd" id="8_4wmds"]
+[ext_resource type="Shader" uid="uid://bsmv1ry0np6wp" path="res://Shaders/skybox.gdshader" id="8_ekcvu"]
+[ext_resource type="PackedScene" uid="uid://raeeicvvindd" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_hand.tscn" id="8_qcw8y"]
+[ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="14_y2r4x"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ekcvu"]
+viewport_path = NodePath("MeshInstance3D/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ekcvu"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_ekcvu")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4wmds"]
+material = SubResource("StandardMaterial3D_ekcvu")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4wmds"]
+points = PackedVector3Array(-1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eni5h"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.039215688)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7iiwd"]
+material = SubResource("StandardMaterial3D_eni5h")
+top_radius = 0.25
+bottom_radius = 0.25
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4wmds"]
+shader = ExtResource("8_ekcvu")
+shader_parameter/time_scale = 0.05
+shader_parameter/base_color = Color(0.2323381, 0.6478363, 1, 1)
+shader_parameter/slime_color = Color(0.78868145, 0.79034936, 0.85473925, 1)
+shader_parameter/highlight_color = Color(0.3, 0.35, 0.4, 1)
+shader_parameter/tendril_density = 4.0
+shader_parameter/tendril_thickness = 0.3
+shader_parameter/animation_speed = 1.0
+shader_parameter/slime_wetness = 0.7
+
+[sub_resource type="Sky" id="Sky_k3d0m"]
+sky_material = SubResource("ShaderMaterial_4wmds")
+process_mode = 3
+
+[sub_resource type="Environment" id="Environment_eup81"]
+background_mode = 2
+background_color = Color(0.9691369, 0.9691369, 0.9691368, 1)
+sky = SubResource("Sky_k3d0m")
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+reflected_light_source = 2
+fog_mode = 1
+fog_light_color = Color(9.535274e-05, 0.00011561906, 0.00015177995, 1)
+fog_density = 1.0
+fog_depth_begin = 1.0
+fog_depth_end = 3.0
+volumetric_fog_density = 0.3
+volumetric_fog_albedo = Color(0, 0, 0, 1)
+volumetric_fog_length = 1000.0
+volumetric_fog_ambient_inject = 0.16
+volumetric_fog_sky_affect = 0.0
+
+[node name="Menu_principal" type="Node3D"]
+script = ExtResource("1_ue32g")
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.562112, 0, 0)
+current = true
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/XRCamera3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -2)
+mesh = SubResource("PlaneMesh_4wmds")
+skeleton = NodePath("../../..")
+script = ExtResource("8_4wmds")
+subviewport_size = Vector2(1920, 1080)
+
+[node name="SubViewport" type="SubViewport" parent="XROrigin3D/XRCamera3D/MeshInstance3D"]
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="MenuPrincipal" parent="XROrigin3D/XRCamera3D/MeshInstance3D/SubViewport" instance=ExtResource("5_uowuk")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="XROrigin3D/XRCamera3D/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/XRCamera3D/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_4wmds")
+
+[node name="LeftHand" type="XRController3D" parent="XROrigin3D" node_paths=PackedStringArray("ui_plane", "subviewport")]
+tracker = &"left_hand"
+script = ExtResource("1_u6nff")
+ui_plane = NodePath("../XRCamera3D/MeshInstance3D")
+subviewport = NodePath("../XRCamera3D/MeshInstance3D/SubViewport")
+
+[node name="LeftHand" parent="XROrigin3D/LeftHand" instance=ExtResource("3_0eknr")]
+
+[node name="RayCast3D" type="RayCast3D" parent="XROrigin3D/LeftHand"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0, 0)
+target_position = Vector3(0, 0, -3)
+hit_from_inside = true
+
+[node name="Reticle" type="MeshInstance3D" parent="XROrigin3D/LeftHand/RayCast3D"]
+transform = Transform3D(0.01, 0, 0, 0, -8.273064e-08, -0.009999986, 0, 1.8926561, -4.371132e-10, 0, 0, -1.964933)
+mesh = SubResource("CylinderMesh_7iiwd")
+
+[node name="RightHand" type="XRController3D" parent="XROrigin3D"]
+tracker = &"right_hand"
+
+[node name="RightHand" parent="XROrigin3D/RightHand" instance=ExtResource("8_qcw8y")]
+
+[node name="MovementTurn" parent="XROrigin3D/RightHand/RightHand" instance=ExtResource("14_y2r4x")]
+turn_mode = 2
+
+[node name="RayCast3D" type="RayCast3D" parent="XROrigin3D/RightHand"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0, 0)
+target_position = Vector3(0, 0, -3)
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Reticle" type="MeshInstance3D" parent="XROrigin3D/RightHand/RayCast3D"]
+transform = Transform3D(0.01, 0, 0, 0, -8.273064e-08, -0.009999986, 0, 1.8926561, -4.371132e-10, 0, 0, -1.964933)
+mesh = SubResource("CylinderMesh_7iiwd")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_eup81")
+
+[node name="Lune" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 23.318695, 61.02668)
+directional_shadow_mode = 0
+directional_shadow_split_1 = 0.5
+directional_shadow_blend_splits = true
+
+[node name="Manoir" parent="." instance=ExtResource("6_47j5s")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -5.501655, 38.183792)

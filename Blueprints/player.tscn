@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://we35fgi6k13o"]
+[gd_scene load_steps=26 format=3 uid="uid://we35fgi6k13o"]
 
 [ext_resource type="Script" uid="uid://cm01a7m6j1nu2" path="res://Scripts/left_hand.gd" id="1_f1l26"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="2_26jkg"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://g401mkrof0g7" path="res://Scripts/right_hand.gd" id="4_u52ks"]
 [ext_resource type="Texture2D" uid="uid://dhrkefj4c5euy" path="res://Objects/Flashlight/FlashlightTexture.png" id="5_10pjn"]
 [ext_resource type="Script" uid="uid://wuji5io526wx" path="res://Scripts/Torche.gd" id="6_aoko6"]
+[ext_resource type="AudioStream" uid="uid://ccpjwx2e6m121" path="res://Audio/footstep.mp3" id="6_bnnfm"]
 [ext_resource type="ArrayMesh" uid="uid://c1mayy8xjjpak" path="res://Objects/Flashlight/Flashlight.obj" id="6_f1l26"]
 [ext_resource type="PackedScene" uid="uid://hdkjhcpxgeof" path="res://Objects/apples_smart_watch_ios/scene.gltf" id="8_kx678"]
 [ext_resource type="Texture2D" uid="uid://ceryjer2l0uo" path="res://Textures/Battery/battery_empty.png" id="9_kx678"]
@@ -99,6 +100,7 @@ vertical_alignment = 1
 [node name="MovementDirect" parent="XROrigin3D/LeftHand/LeftHand" instance=ExtResource("3_wqhxr")]
 max_speed = 5.0
 strafe = true
+footstep_sound = ExtResource("6_bnnfm")
 
 [node name="RayCast3D" type="RayCast3D" parent="XROrigin3D/LeftHand"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0, 0)

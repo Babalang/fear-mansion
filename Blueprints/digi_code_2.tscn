@@ -1,0 +1,158 @@
+[gd_scene load_steps=27 format=3 uid="uid://cxg56cjkiwtcg"]
+
+[ext_resource type="PackedScene" uid="uid://bj8febuciuamh" path="res://Blueprints/digi_code.tscn" id="1_wdxwu"]
+[ext_resource type="Script" uid="uid://bc5ktu0fbuasj" path="res://Blueprints/label_garage.gd" id="2_bvxm5"]
+[ext_resource type="Script" uid="uid://dxq3oorgsm10v" path="res://Scripts/digicode2.gd" id="3_5fbuy"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_bvxm5"]
+viewport_path = NodePath("Cadre/Ecran/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5fbuy"]
+resource_local_to_scene = true
+transparency = 1
+albedo_texture = SubResource("ViewportTexture_bvxm5")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fb1ys"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_5fbuy")
+size = Vector2(0.3, 0.1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_d4gtp"]
+viewport_path = NodePath("Cadre/Ecran/Clavier/1/Bouton/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gv5ow"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_d4gtp")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_lyrrc"]
+viewport_path = NodePath("Cadre/Ecran/Clavier/2/Bouton/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r2cvq"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_lyrrc")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_d3d0n"]
+viewport_path = NodePath("Cadre/Ecran/Clavier/3/Bouton/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ydm2x"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_d3d0n")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_747iw"]
+viewport_path = NodePath("Cadre/Ecran/Clavier/4/Bouton/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ry4ov"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_747iw")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_l1uol"]
+viewport_path = NodePath("Cadre/Ecran/Clavier/5/Bouton/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gl7ba"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_l1uol")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ud47x"]
+viewport_path = NodePath("Cadre/Ecran/Clavier/6/Bouton/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dgnu7"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_ud47x")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_apqku"]
+viewport_path = NodePath("Cadre/Ecran/Clavier/7/Bouton/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5gw1p"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_apqku")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_b4ft7"]
+viewport_path = NodePath("Cadre/Ecran/Clavier/8/Bouton/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k4cvl"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_b4ft7")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_dm0ht"]
+viewport_path = NodePath("Cadre/Ecran/Clavier/9/Bouton/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r0u3y"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_dm0ht")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_5i0js"]
+viewport_path = NodePath("Cadre/Ecran/Clavier/0/Bouton/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2cyll"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_5i0js")
+
+[node name="DigiCode" instance=ExtResource("1_wdxwu")]
+
+[node name="Ecran" parent="Cadre" index="0"]
+mesh = SubResource("PlaneMesh_fb1ys")
+
+[node name="Label" parent="Cadre/Ecran/SubViewport" index="1"]
+text = "1983
+"
+script = ExtResource("2_bvxm5")
+
+[node name="1" parent="Cadre/Ecran/Clavier" index="0"]
+script = ExtResource("3_5fbuy")
+
+[node name="Bouton" parent="Cadre/Ecran/Clavier/1" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_gv5ow")
+
+[node name="2" parent="Cadre/Ecran/Clavier" index="1"]
+script = ExtResource("3_5fbuy")
+
+[node name="Bouton" parent="Cadre/Ecran/Clavier/2" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_r2cvq")
+
+[node name="3" parent="Cadre/Ecran/Clavier" index="2"]
+script = ExtResource("3_5fbuy")
+
+[node name="Bouton" parent="Cadre/Ecran/Clavier/3" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ydm2x")
+
+[node name="4" parent="Cadre/Ecran/Clavier" index="3"]
+script = ExtResource("3_5fbuy")
+
+[node name="Bouton" parent="Cadre/Ecran/Clavier/4" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ry4ov")
+
+[node name="5" parent="Cadre/Ecran/Clavier" index="4"]
+script = ExtResource("3_5fbuy")
+
+[node name="Bouton" parent="Cadre/Ecran/Clavier/5" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_gl7ba")
+
+[node name="6" parent="Cadre/Ecran/Clavier" index="5"]
+script = ExtResource("3_5fbuy")
+
+[node name="Bouton" parent="Cadre/Ecran/Clavier/6" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_dgnu7")
+
+[node name="7" parent="Cadre/Ecran/Clavier" index="6"]
+script = ExtResource("3_5fbuy")
+
+[node name="Bouton" parent="Cadre/Ecran/Clavier/7" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5gw1p")
+
+[node name="8" parent="Cadre/Ecran/Clavier" index="7"]
+script = ExtResource("3_5fbuy")
+
+[node name="Bouton" parent="Cadre/Ecran/Clavier/8" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_k4cvl")
+
+[node name="9" parent="Cadre/Ecran/Clavier" index="8"]
+script = ExtResource("3_5fbuy")
+
+[node name="Bouton" parent="Cadre/Ecran/Clavier/9" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_r0u3y")
+
+[node name="0" parent="Cadre/Ecran/Clavier" index="9"]
+script = ExtResource("3_5fbuy")
+
+[node name="Bouton" parent="Cadre/Ecran/Clavier/0" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_2cyll")

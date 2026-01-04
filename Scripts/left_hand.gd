@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 			if door.has_method("get_hint_text"):
 				if door != last_hovered:
 					last_hovered = door
-					trigger_haptic_pulse("haptic",0.05,20.0,0.1,0.0)
+					trigger_haptic_pulse("haptic",0.05,50.0,0.4,0.0)
 				Global.emit_signal("display_txt", door.get_hint_text())
 	else:
 		Global.emit_signal("display_txt", "")

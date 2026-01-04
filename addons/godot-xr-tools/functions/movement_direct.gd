@@ -24,6 +24,9 @@ extends XRToolsMovementProvider
 ## Input action for movement direction
 @export var input_action : String = "primary"
 
+## AUDIO
+@export var footstep_sound: AudioStream
+var footstep_player: AudioStreamPlayer3D
 
 # Controller node
 var _controller : XRController3D
@@ -37,7 +40,14 @@ func is_xr_class(xr_name:  String) -> bool:
 # Called when our node is added to our scene tree
 func _enter_tree():
 	_controller = XRHelpers.get_xr_controller(self)
-
+	if footstep_sound:
+		footstep_player = AudioStreamPlayer3D.new()
+		footstep_player.stream = footstep_sound
+		footstep_player.unit_size = 1.0
+		footstep_player.max_distance = 10.0
+		footstep_player.attenuation_filter_cutoff_hz = 8000
+		footstep_player.bus = "SFX"
+		add_child(footstep_player)
 
 # Called when our node is removed from our scene tree
 func _exit_tree():
@@ -61,6 +71,13 @@ func physics_movement(_delta: float, player_body: XRToolsPlayerBody, _disabled: 
 	var length := player_body.ground_control_velocity.length()
 	if length > max_speed:
 		player_body.ground_control_velocity *= max_speed / length
+	
+	# === FOOTSTEP SOUND ===
+	if footstep_player and dz_input_action.length() > 0.1:
+		footstep_player.volume_db = -15.0
+		if not footstep_player.playing:
+			footstep_player.play()
+
 
 
 # This method verifies the movement provider has a valid configuration.
