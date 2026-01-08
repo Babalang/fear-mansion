@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://732i7gc3l3t5"]
+
+[ext_resource type="Script" uid="uid://dsd4eyuqc5pkv" path="res://Scenes/ia.gd" id="1_ceudg"]
+[ext_resource type="PackedScene" uid="uid://d2sysqx38hewu" path="res://Objects/Springtrap/Spring Trap/testWalkIdle.fbx" id="2_ceudg"]
+[ext_resource type="AudioStream" uid="uid://cms3g5c6o2axu" path="res://Audio/big-robot-footstep-014-445104.mp3" id="3_jv11s"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xhxns"]
+radius = 0.2
+height = 5.99
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xhxns"]
+
+[node name="IA" type="Node3D"]
+
+[node name="Node3D" type="Node3D" parent="."]
+script = ExtResource("1_ceudg")
+
+[node name="testWalkIdle" parent="Node3D" instance=ExtResource("2_ceudg")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="Camera" type="Camera3D" parent="Node3D"]
+transform = Transform3D(-1, 0, -8.742279e-08, 0, 1, 0, 8.742279e-08, 0, -1, 0, 1.6555893, 0.06790514)
+
+[node name="RayCast3D" type="RayCast3D" parent="Node3D"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 1.6555893, 0.06790514)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="Node3D"]
+path_desired_distance = 0.5
+avoidance_enabled = true
+debug_enabled = true
+
+[node name="Timer" type="Timer" parent="Node3D"]
+
+[node name="TimerPorte" type="Timer" parent="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(0.29999998, 0, 0, 0, 0.29999998, 0, 0, 0, 0.29999998, 0, 0.8638808, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_xhxns")
+skeleton = NodePath("")
+
+[node name="Area3D" type="Area3D" parent="Node3D"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Area3D"]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 3, 0)
+shape = SubResource("SphereShape3D_xhxns")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Node3D"]
+stream = ExtResource("3_jv11s")
+
+[connection signal="link_reached" from="Node3D/NavigationAgent3D" to="Node3D" method="_on_navigation_agent_3d_link_reached"]

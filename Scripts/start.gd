@@ -7,6 +7,8 @@ func _ready():
 
 func _on_pressed():
 	print("Bouton cliqué :", name)
+	
+	#get_tree().change_scene_to_file("res://Scenes/Basement_LVL.tscn")
 
 	if scene_to_load:
 		get_tree().change_scene_to_packed(scene_to_load)

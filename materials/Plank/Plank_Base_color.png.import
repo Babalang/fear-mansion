@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dk4nfw04ms1dp"
 path.s3tc="res://.godot/imported/Plank_Base_color.png-c5bdc2b3342f2baf4a3d754689856177.s3tc.ctex"
+path.etc2="res://.godot/imported/Plank_Base_color.png-c5bdc2b3342f2baf4a3d754689856177.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://materials/Plank/Plank_Base_color.png"
-dest_files=["res://.godot/imported/Plank_Base_color.png-c5bdc2b3342f2baf4a3d754689856177.s3tc.ctex"]
+dest_files=["res://.godot/imported/Plank_Base_color.png-c5bdc2b3342f2baf4a3d754689856177.s3tc.ctex", "res://.godot/imported/Plank_Base_color.png-c5bdc2b3342f2baf4a3d754689856177.etc2.ctex"]
 
 [params]
 

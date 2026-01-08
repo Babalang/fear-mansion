@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://bbie7y40qv3mv"]
+
+[ext_resource type="PackedScene" uid="uid://bslplxrr4gyjm" path="res://Scenes/manoir.tscn" id="1_a7b1e"]
+[ext_resource type="PackedScene" uid="uid://cfvmog285pj76" path="res://Objects/Ruined_Sofa/post_apocalyptic_ruined_sofa.glb" id="2_k3d0m"]
+[ext_resource type="ArrayMesh" uid="uid://b2wqds7wlxfp3" path="res://Objects/Endoskeleton/Endoskeleton.obj" id="3_iw15y"]
+[ext_resource type="Script" uid="uid://cc2sb3j6sti3c" path="res://Scenes/joueur.gd" id="3_xuwdi"]
+[ext_resource type="Script" uid="uid://dsd4eyuqc5pkv" path="res://Scenes/ia.gd" id="4_iw15y"]
+[ext_resource type="PackedScene" uid="uid://beuvye6fybqun" path="res://Objects/Springtrap/Spring Trap/Spring Trap.fbx" id="4_k3d0m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xuwdi"]
+size = Vector3(6.7960815, 6.666992, 1.3094482)
+
+[node name="Basement_LVL" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.04075955, 0, -0.999169, 0, 1, 0, 0.999169, 0, 0.04075955, -2.1184616, 2.824055, 2.7873697)
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("2_k3d0m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7053356, -0.46961638, -6.218334)
+
+[node name="Endoskeleton" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.99970657, 0, 0.024222778, 0, 1, 0, -0.024222778, 0, -0.99970657, 0.6407764, 1.275401, 4.5010586)
+mesh = ExtResource("3_iw15y")
+script = ExtResource("3_xuwdi")
+
+[node name="visible" type="VisibleOnScreenNotifier3D" parent="Endoskeleton"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7561103, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.08045986, 0.99675786, 0, -0.99675786, 0.08045986, 0, 0.8228464, 0)
+
+[node name="manoir" parent="." instance=ExtResource("1_a7b1e")]
+
+[node name="IA" type="CharacterBody3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.9852357, 1.2502265, 0.3931477)
+script = ExtResource("4_iw15y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="IA"]
+transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, -0.025604963, 3.3317986, -0.016174316)
+shape = SubResource("BoxShape3D_xuwdi")
+
+[node name="Spring Trap" parent="IA" instance=ExtResource("4_k3d0m")]
+
+[node name="Camera" type="Camera3D" parent="IA"]
+transform = Transform3D(-3.333333, 0, -2.9140926e-07, 0, 3.333333, 0, 2.9140926e-07, 0, -3.333333, 0, 5.5431786, 0.1792494)

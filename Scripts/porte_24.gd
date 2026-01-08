@@ -11,6 +11,7 @@ var open_player: AudioStreamPlayer3D
 var key_layer : AudioStreamPlayer3D
 var open_rotation := Vector3(0, deg_to_rad(-90), 0)
 var txt : MeshInstance3D = null
+var ouverte=false
 
 func _ready():
 	Global.connect("key_snapped", Callable(self, "_on_key_snapped"))
@@ -46,6 +47,7 @@ func _setup_audio():
 func open_door():
 	if Key1 and Key2 and Key3 and Key4 :
 		if Key1.is_snapped and Key2.is_snapped and Key3.is_snapped and Key4.is_snapped :
+			ouverte=true
 			if play_sounds and open_sound:
 				open_player.play()
 			var t := create_tween()

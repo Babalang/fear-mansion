@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://batsulimabn14"
 path.s3tc="res://.godot/imported/SecondFloor_Normal_OpenGL.png-897c434e7d9761faee66f4adde2ae37f.s3tc.ctex"
+path.etc2="res://.godot/imported/SecondFloor_Normal_OpenGL.png-897c434e7d9761faee66f4adde2ae37f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://materials/SecondFloor/SecondFloor_Normal_OpenGL.png"
-dest_files=["res://.godot/imported/SecondFloor_Normal_OpenGL.png-897c434e7d9761faee66f4adde2ae37f.s3tc.ctex"]
+dest_files=["res://.godot/imported/SecondFloor_Normal_OpenGL.png-897c434e7d9761faee66f4adde2ae37f.s3tc.ctex", "res://.godot/imported/SecondFloor_Normal_OpenGL.png-897c434e7d9761faee66f4adde2ae37f.etc2.ctex"]
 
 [params]
 

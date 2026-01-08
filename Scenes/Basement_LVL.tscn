@@ -1,10 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://bbie7y40qv3mv"]
+[gd_scene load_steps=13 format=3 uid="uid://bbie7y40qv3mv"]
 
 [ext_resource type="Script" uid="uid://ca00ksh8lilio" path="res://Scenes/basement_lvl.gd" id="1_kqjss"]
 [ext_resource type="PackedScene" uid="uid://cfvmog285pj76" path="res://Objects/Ruined_Sofa/post_apocalyptic_ruined_sofa.glb" id="2_k3d0m"]
 [ext_resource type="ArrayMesh" uid="uid://b2wqds7wlxfp3" path="res://Objects/Endoskeleton/Endoskeleton.obj" id="3_iw15y"]
-[ext_resource type="Shader" uid="uid://bsmv1ry0np6wp" path="res://Shaders/skybox.gdshader" id="4_k3d0m"]
+[ext_resource type="Shader" path="res://Shaders/skybox.gdshader" id="4_k3d0m"]
+[ext_resource type="Script" uid="uid://b7ktb6n77ra2o" path="res://Scenes/manoir_f.gd" id="6_2ufmk"]
 [ext_resource type="PackedScene" uid="uid://we35fgi6k13o" path="res://Blueprints/player.tscn" id="6_xuwdi"]
+[ext_resource type="Script" uid="uid://cc2sb3j6sti3c" path="res://Scenes/joueur.gd" id="7_2ufmk"]
+[ext_resource type="PackedScene" uid="uid://732i7gc3l3t5" path="res://Objects/Springtrap/Spring Trap/ia.tscn" id="7_j86du"]
 [ext_resource type="PackedScene" uid="uid://cqppbfh2ilvou" path="res://Scenes/manoir_f.tscn" id="7_kqjss"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iw15y"]
@@ -76,7 +79,11 @@ spot_range = 5.4891596
 spot_angle = 67.486305
 
 [node name="Manoir" parent="." instance=ExtResource("7_kqjss")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+script = ExtResource("6_2ufmk")
 
 [node name="Player" parent="." instance=ExtResource("6_xuwdi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.08173, 8.447369, 3.5769038)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1696215, 2.1740232, -2.943124)
+script = ExtResource("7_2ufmk")
+
+[node name="IA" parent="." instance=ExtResource("7_j86du")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0888689, 1.2470185, -5.343178)

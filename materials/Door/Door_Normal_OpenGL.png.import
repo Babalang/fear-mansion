@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c7y4eypdi3mpt"
 path.s3tc="res://.godot/imported/Door_Normal_OpenGL.png-032d2acb37f4292d66e4831124ffc6cb.s3tc.ctex"
+path.etc2="res://.godot/imported/Door_Normal_OpenGL.png-032d2acb37f4292d66e4831124ffc6cb.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://materials/Door/Door_Normal_OpenGL.png"
-dest_files=["res://.godot/imported/Door_Normal_OpenGL.png-032d2acb37f4292d66e4831124ffc6cb.s3tc.ctex"]
+dest_files=["res://.godot/imported/Door_Normal_OpenGL.png-032d2acb37f4292d66e4831124ffc6cb.s3tc.ctex", "res://.godot/imported/Door_Normal_OpenGL.png-032d2acb37f4292d66e4831124ffc6cb.etc2.ctex"]
 
 [params]
 

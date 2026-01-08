@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bgtfioxs2okfq"
 path.s3tc="res://.godot/imported/Roof_Normal.png-6eb08b1b34d036abac52fbad1170b1f5.s3tc.ctex"
+path.etc2="res://.godot/imported/Roof_Normal.png-6eb08b1b34d036abac52fbad1170b1f5.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://materials/roof/Roof_Normal.png"
-dest_files=["res://.godot/imported/Roof_Normal.png-6eb08b1b34d036abac52fbad1170b1f5.s3tc.ctex"]
+dest_files=["res://.godot/imported/Roof_Normal.png-6eb08b1b34d036abac52fbad1170b1f5.s3tc.ctex", "res://.godot/imported/Roof_Normal.png-6eb08b1b34d036abac52fbad1170b1f5.etc2.ctex"]
 
 [params]
 

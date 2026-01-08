@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://u1ijuovvgle8"
 path.s3tc="res://.godot/imported/FirstFloor_Metallic.png-097c22fd6598049799a481c6146a71f2.s3tc.ctex"
+path.etc2="res://.godot/imported/FirstFloor_Metallic.png-097c22fd6598049799a481c6146a71f2.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://materials/rdc/FirstFloor_Metallic.png"
-dest_files=["res://.godot/imported/FirstFloor_Metallic.png-097c22fd6598049799a481c6146a71f2.s3tc.ctex"]
+dest_files=["res://.godot/imported/FirstFloor_Metallic.png-097c22fd6598049799a481c6146a71f2.s3tc.ctex", "res://.godot/imported/FirstFloor_Metallic.png-097c22fd6598049799a481c6146a71f2.etc2.ctex"]
 
 [params]
 

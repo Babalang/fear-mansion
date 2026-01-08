@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cyg1sliw5w4me"
 path.s3tc="res://.godot/imported/bed83h_DefaultMaterial_NormalGL.png-bd03337239cc990f8ac52863d2d1cfd3.s3tc.ctex"
+path.etc2="res://.godot/imported/bed83h_DefaultMaterial_NormalGL.png-bd03337239cc990f8ac52863d2d1cfd3.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Objects/bed/bed83h_DefaultMaterial_NormalGL.png"
-dest_files=["res://.godot/imported/bed83h_DefaultMaterial_NormalGL.png-bd03337239cc990f8ac52863d2d1cfd3.s3tc.ctex"]
+dest_files=["res://.godot/imported/bed83h_DefaultMaterial_NormalGL.png-bd03337239cc990f8ac52863d2d1cfd3.s3tc.ctex", "res://.godot/imported/bed83h_DefaultMaterial_NormalGL.png-bd03337239cc990f8ac52863d2d1cfd3.etc2.ctex"]
 
 [params]
 

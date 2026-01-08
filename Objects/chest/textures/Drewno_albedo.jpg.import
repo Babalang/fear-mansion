@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cyw1ohv5nvu8r"
 path.s3tc="res://.godot/imported/Drewno_albedo.jpg-ff227c176b7605e40ccba8268e81be1c.s3tc.ctex"
+path.etc2="res://.godot/imported/Drewno_albedo.jpg-ff227c176b7605e40ccba8268e81be1c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Objects/chest/textures/Drewno_albedo.jpg"
-dest_files=["res://.godot/imported/Drewno_albedo.jpg-ff227c176b7605e40ccba8268e81be1c.s3tc.ctex"]
+dest_files=["res://.godot/imported/Drewno_albedo.jpg-ff227c176b7605e40ccba8268e81be1c.s3tc.ctex", "res://.godot/imported/Drewno_albedo.jpg-ff227c176b7605e40ccba8268e81be1c.etc2.ctex"]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvm02pg2bwx23"]
+[gd_scene load_steps=9 format=3 uid="uid://dvm02pg2bwx23"]
 
 [ext_resource type="Theme" uid="uid://ouxc66npj3wq" path="res://Themes/Main_menu_theme.tres" id="1_bh5t2"]
 [ext_resource type="Shader" uid="uid://bc7mefdn5aohb" path="res://Shaders/main_menu/Menu_Principal.gdshader" id="1_sryba"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dd27e32k0gqrs" path="res://Scripts/main_menu/texture_rect.gd" id="3_2mu3c"]
 [ext_resource type="Script" uid="uid://cjq8s5538eftc" path="res://Scripts/start.gd" id="5_2s8m2"]
 [ext_resource type="PackedScene" uid="uid://bbie7y40qv3mv" path="res://Scenes/Basement_LVL.tscn" id="6_gdmt2"]
+[ext_resource type="Script" uid="uid://scjd5nuxrsgp" path="res://Scenes/quit.gd" id="7_0flu2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jjfk5"]
 shader = ExtResource("1_sryba")
@@ -77,3 +78,4 @@ text = "Option"
 [node name="Quit" type="Button" parent="CenterContainer/VBoxContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
+script = ExtResource("7_0flu2")

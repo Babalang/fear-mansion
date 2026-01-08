@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cnipyki6fkpqe"
 path.s3tc="res://.godot/imported/material_sol_Roughness.png-8823fa7a89442dab0c374f02c1fe9091.s3tc.ctex"
+path.etc2="res://.godot/imported/material_sol_Roughness.png-8823fa7a89442dab0c374f02c1fe9091.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://materials/Ground/material_sol_Roughness.png"
-dest_files=["res://.godot/imported/material_sol_Roughness.png-8823fa7a89442dab0c374f02c1fe9091.s3tc.ctex"]
+dest_files=["res://.godot/imported/material_sol_Roughness.png-8823fa7a89442dab0c374f02c1fe9091.s3tc.ctex", "res://.godot/imported/material_sol_Roughness.png-8823fa7a89442dab0c374f02c1fe9091.etc2.ctex"]
 
 [params]
 

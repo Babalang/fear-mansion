@@ -34,3 +34,8 @@ const DEFAULT_KEY_SOUND = preload("res://Audio/lock-the-door.mp3")
 const DEFAULT_BEEP_SOUND = preload("res://Audio/beep.mp3")
 const DEFAULT_CORRECT_SOUND = preload("res://Audio/correct.mp3")
 const DEFAULT_WRONG_SOUND = preload("res://Audio/wrong.mp3")
+
+var joueur
+var porteSousSol
+var init=false
+var mort

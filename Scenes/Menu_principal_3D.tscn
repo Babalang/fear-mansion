@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dodwy6i6l4k4u"]
+[gd_scene load_steps=20 format=3 uid="uid://dodwy6i6l4k4u"]
 
 [ext_resource type="Script" uid="uid://bk7u865shkp34" path="res://Scripts/left_hand_menu.gd" id="1_u6nff"]
 [ext_resource type="Script" uid="uid://ca00ksh8lilio" path="res://Scenes/basement_lvl.gd" id="1_ue32g"]
@@ -6,22 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://dvm02pg2bwx23" path="res://Scenes/Menu_Principal.tscn" id="5_uowuk"]
 [ext_resource type="PackedScene" uid="uid://cqppbfh2ilvou" path="res://Scenes/manoir_f.tscn" id="6_47j5s"]
 [ext_resource type="Script" uid="uid://b06uptpixdgr" path="res://Scripts/mesh_instance_3d.gd" id="8_4wmds"]
-[ext_resource type="Shader" uid="uid://bsmv1ry0np6wp" path="res://Shaders/skybox.gdshader" id="8_ekcvu"]
+[ext_resource type="Shader" path="res://Shaders/skybox.gdshader" id="8_ekcvu"]
 [ext_resource type="PackedScene" uid="uid://raeeicvvindd" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_hand.tscn" id="8_qcw8y"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="8_xk86p"]
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="14_y2r4x"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_ekcvu"]
-viewport_path = NodePath("MeshInstance3D/SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ekcvu"]
-resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_ekcvu")
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_4wmds"]
-material = SubResource("StandardMaterial3D_ekcvu")
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4wmds"]
-points = PackedVector3Array(-1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eni5h"]
 transparency = 1
@@ -65,6 +53,19 @@ volumetric_fog_length = 1000.0
 volumetric_fog_ambient_inject = 0.16
 volumetric_fog_sky_affect = 0.0
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_ekcvu"]
+viewport_path = NodePath("MeshInstance3D/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ekcvu"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_ekcvu")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4wmds"]
+material = SubResource("StandardMaterial3D_ekcvu")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4wmds"]
+points = PackedVector3Array(-1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0, 1)
+
 [node name="Menu_principal" type="Node3D"]
 script = ExtResource("1_ue32g")
 
@@ -74,29 +75,11 @@ current = true
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/XRCamera3D"]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -2)
-mesh = SubResource("PlaneMesh_4wmds")
-skeleton = NodePath("../../..")
-script = ExtResource("8_4wmds")
-subviewport_size = Vector2(1920, 1080)
-
-[node name="SubViewport" type="SubViewport" parent="XROrigin3D/XRCamera3D/MeshInstance3D"]
-size = Vector2i(1920, 1080)
-render_target_update_mode = 4
-
-[node name="MenuPrincipal" parent="XROrigin3D/XRCamera3D/MeshInstance3D/SubViewport" instance=ExtResource("5_uowuk")]
-
-[node name="StaticBody3D" type="StaticBody3D" parent="XROrigin3D/XRCamera3D/MeshInstance3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/XRCamera3D/MeshInstance3D/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_4wmds")
-
 [node name="LeftHand" type="XRController3D" parent="XROrigin3D" node_paths=PackedStringArray("ui_plane", "subviewport")]
 tracker = &"left_hand"
 script = ExtResource("1_u6nff")
-ui_plane = NodePath("../XRCamera3D/MeshInstance3D")
-subviewport = NodePath("../XRCamera3D/MeshInstance3D/SubViewport")
+ui_plane = NodePath("../../MeshInstance3D")
+subviewport = NodePath("../../MeshInstance3D/SubViewport")
 
 [node name="LeftHand" parent="XROrigin3D/LeftHand" instance=ExtResource("3_0eknr")]
 
@@ -111,6 +94,7 @@ mesh = SubResource("CylinderMesh_7iiwd")
 
 [node name="RightHand" type="XRController3D" parent="XROrigin3D"]
 tracker = &"right_hand"
+script = ExtResource("1_u6nff")
 
 [node name="RightHand" parent="XROrigin3D/RightHand" instance=ExtResource("8_qcw8y")]
 
@@ -127,6 +111,8 @@ collide_with_bodies = false
 transform = Transform3D(0.01, 0, 0, 0, -8.273064e-08, -0.009999986, 0, 1.8926561, -4.371132e-10, 0, 0, -1.964933)
 mesh = SubResource("CylinderMesh_7iiwd")
 
+[node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("8_xk86p")]
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_eup81")
 
@@ -138,3 +124,26 @@ directional_shadow_blend_splits = true
 
 [node name="Manoir" parent="." instance=ExtResource("6_47j5s")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -5.501655, 38.183792)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -4.562112, 0, -2)
+mesh = SubResource("PlaneMesh_4wmds")
+script = ExtResource("8_4wmds")
+subviewport_size = Vector2(1920, 1080)
+
+[node name="SubViewport" type="SubViewport" parent="MeshInstance3D"]
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="MenuPrincipal" parent="MeshInstance3D/SubViewport" instance=ExtResource("5_uowuk")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_4wmds")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1.9724658, 0.6575132)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D2"]
+shape = SubResource("ConvexPolygonShape3D_4wmds")

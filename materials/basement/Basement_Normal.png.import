@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dtqi6x0lef0xr"
 path.s3tc="res://.godot/imported/Basement_Normal.png-02e6877c3b45bfbeb87b1b2b3e0491fa.s3tc.ctex"
+path.etc2="res://.godot/imported/Basement_Normal.png-02e6877c3b45bfbeb87b1b2b3e0491fa.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://materials/basement/Basement_Normal.png"
-dest_files=["res://.godot/imported/Basement_Normal.png-02e6877c3b45bfbeb87b1b2b3e0491fa.s3tc.ctex"]
+dest_files=["res://.godot/imported/Basement_Normal.png-02e6877c3b45bfbeb87b1b2b3e0491fa.s3tc.ctex", "res://.godot/imported/Basement_Normal.png-02e6877c3b45bfbeb87b1b2b3e0491fa.etc2.ctex"]
 
 [params]
 

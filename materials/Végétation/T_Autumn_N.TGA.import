@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://birex1ey50lpm"
 path.s3tc="res://.godot/imported/T_Autumn_N.TGA-ce5c00845140550cdc3031caa807e790.s3tc.ctex"
+path.etc2="res://.godot/imported/T_Autumn_N.TGA-ce5c00845140550cdc3031caa807e790.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://materials/Végétation/T_Autumn_N.TGA"
-dest_files=["res://.godot/imported/T_Autumn_N.TGA-ce5c00845140550cdc3031caa807e790.s3tc.ctex"]
+dest_files=["res://.godot/imported/T_Autumn_N.TGA-ce5c00845140550cdc3031caa807e790.s3tc.ctex", "res://.godot/imported/T_Autumn_N.TGA-ce5c00845140550cdc3031caa807e790.etc2.ctex"]
 
 [params]
 

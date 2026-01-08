@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbw2t1kuxr6j6"
 path.s3tc="res://.godot/imported/Roof_Roughness.png-bd6432b51f00ec78d2458b550d84f32c.s3tc.ctex"
+path.etc2="res://.godot/imported/Roof_Roughness.png-bd6432b51f00ec78d2458b550d84f32c.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://materials/SecondFloor/Roof_Roughness.png"
-dest_files=["res://.godot/imported/Roof_Roughness.png-bd6432b51f00ec78d2458b550d84f32c.s3tc.ctex"]
+dest_files=["res://.godot/imported/Roof_Roughness.png-bd6432b51f00ec78d2458b550d84f32c.s3tc.ctex", "res://.godot/imported/Roof_Roughness.png-bd6432b51f00ec78d2458b550d84f32c.etc2.ctex"]
 
 [params]
 

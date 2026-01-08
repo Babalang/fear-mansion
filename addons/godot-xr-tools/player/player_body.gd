@@ -186,6 +186,8 @@ var _fade_value : float = 0.0
 ## XROrigin3D node
 @onready var origin_node : XROrigin3D = XRHelpers.get_xr_origin(self)
 
+@onready var sphere: MeshInstance3D = get_node("../../Sphere")
+
 ## XRCamera3D node
 @onready var camera_node : XRCamera3D = XRHelpers.get_xr_camera(self)
 
@@ -359,6 +361,9 @@ func _physics_process(delta: float):
 	# Apply the player-body movement to the XR origin
 	var movement := global_transform.origin - position_before_movement
 	origin_node.global_transform.origin += movement
+	
+	
+	
 
 	# Orient the player towards (potentially modified) gravity
 	slew_up(-gravity.normalized(), 5.0 * delta)
@@ -370,6 +375,9 @@ func _physics_process(delta: float):
 
 	# And we're done!
 	_in_physics_movement = false
+	
+	#sphere.global_position=origin_node.global_position
+	
 
 
 ## Teleport the player body.

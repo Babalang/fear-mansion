@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://732i7gc3l3t5"]
+
+[ext_resource type="Script" uid="uid://dsd4eyuqc5pkv" path="res://Scenes/ia.gd" id="1_ceudg"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xhxns"]
+radius = 0.2
+height = 5.99
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xhxns"]
+
+[node name="IA" type="Node3D"]
+
+[node name="Node3D" type="Node3D" parent="."]
+script = ExtResource("1_ceudg")
+
+[node name="Camera" type="Camera3D" parent="Node3D"]
+transform = Transform3D(-1, 0, -8.742279e-08, 0, 1, 0, 8.742279e-08, 0, -1, 0, 1.6555893, 0.06790514)
+
+[node name="RayCast3D" type="RayCast3D" parent="Node3D"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 1.6555893, 0.06790514)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="Node3D"]
+path_desired_distance = 0.25
+path_height_offset = 0.2
+debug_enabled = true
+
+[node name="Timer" type="Timer" parent="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(0.29999998, 0, 0, 0, 0.29999998, 0, 0, 0, 0.29999998, 0, 0.8638808, 0)
+mesh = SubResource("CapsuleMesh_xhxns")
+skeleton = NodePath("")
+
+[node name="Area3D" type="Area3D" parent="Node3D"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Area3D"]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 3, 0)
+shape = SubResource("SphereShape3D_xhxns")
