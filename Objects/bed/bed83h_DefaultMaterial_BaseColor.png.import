@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://g5dfekq2dp3q"
 path.s3tc="res://.godot/imported/bed83h_DefaultMaterial_BaseColor.png-50d4fb38bd910d00640941c3b52dbd7a.s3tc.ctex"
-path.etc2="res://.godot/imported/bed83h_DefaultMaterial_BaseColor.png-50d4fb38bd910d00640941c3b52dbd7a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Objects/bed/bed83h_DefaultMaterial_BaseColor.png"
-dest_files=["res://.godot/imported/bed83h_DefaultMaterial_BaseColor.png-50d4fb38bd910d00640941c3b52dbd7a.s3tc.ctex", "res://.godot/imported/bed83h_DefaultMaterial_BaseColor.png-50d4fb38bd910d00640941c3b52dbd7a.etc2.ctex"]
+dest_files=["res://.godot/imported/bed83h_DefaultMaterial_BaseColor.png-50d4fb38bd910d00640941c3b52dbd7a.s3tc.ctex"]
 
 [params]
 

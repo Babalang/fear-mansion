@@ -4,9 +4,8 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dio8p1uwnc7pr"
 path.s3tc="res://.godot/imported/post_apocalyptic_ruined_sofa_1.png-d47acd5003cd6c963fdc8a93b8e40918.s3tc.ctex"
-path.etc2="res://.godot/imported/post_apocalyptic_ruined_sofa_1.png-d47acd5003cd6c963fdc8a93b8e40918.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -16,7 +15,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Objects/Ruined_Sofa/post_apocalyptic_ruined_sofa_1.png"
-dest_files=["res://.godot/imported/post_apocalyptic_ruined_sofa_1.png-d47acd5003cd6c963fdc8a93b8e40918.s3tc.ctex", "res://.godot/imported/post_apocalyptic_ruined_sofa_1.png-d47acd5003cd6c963fdc8a93b8e40918.etc2.ctex"]
+dest_files=["res://.godot/imported/post_apocalyptic_ruined_sofa_1.png-d47acd5003cd6c963fdc8a93b8e40918.s3tc.ctex"]
 
 [params]
 

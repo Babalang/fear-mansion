@@ -4,9 +4,8 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c6m7rxxti2y2t"
 path.s3tc="res://.godot/imported/manoir_v_alpha_1.png-dae885cd81905922359dc51649d95afd.s3tc.ctex"
-path.etc2="res://.godot/imported/manoir_v_alpha_1.png-dae885cd81905922359dc51649d95afd.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -16,7 +15,7 @@ generator_parameters={
 [deps]
 
 source_file="res://MansionFBX/manoir_v_alpha_1.png"
-dest_files=["res://.godot/imported/manoir_v_alpha_1.png-dae885cd81905922359dc51649d95afd.s3tc.ctex", "res://.godot/imported/manoir_v_alpha_1.png-dae885cd81905922359dc51649d95afd.etc2.ctex"]
+dest_files=["res://.godot/imported/manoir_v_alpha_1.png-dae885cd81905922359dc51649d95afd.s3tc.ctex"]
 
 [params]
 

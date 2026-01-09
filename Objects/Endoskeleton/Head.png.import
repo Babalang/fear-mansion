@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://mbl8vtl23v0m"
 path.s3tc="res://.godot/imported/Head.png-ea751d1a98668999956921c29888aab9.s3tc.ctex"
-path.etc2="res://.godot/imported/Head.png-ea751d1a98668999956921c29888aab9.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Objects/Endoskeleton/Head.png"
-dest_files=["res://.godot/imported/Head.png-ea751d1a98668999956921c29888aab9.s3tc.ctex", "res://.godot/imported/Head.png-ea751d1a98668999956921c29888aab9.etc2.ctex"]
+dest_files=["res://.godot/imported/Head.png-ea751d1a98668999956921c29888aab9.s3tc.ctex"]
 
 [params]
 

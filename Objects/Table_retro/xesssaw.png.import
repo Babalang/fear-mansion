@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cs1sn313otp4o"
 path.s3tc="res://.godot/imported/xesssaw.png-6544157224d3433a9343d88348710e7a.s3tc.ctex"
-path.etc2="res://.godot/imported/xesssaw.png-6544157224d3433a9343d88348710e7a.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Objects/Table_retro/xesssaw.png"
-dest_files=["res://.godot/imported/xesssaw.png-6544157224d3433a9343d88348710e7a.s3tc.ctex", "res://.godot/imported/xesssaw.png-6544157224d3433a9343d88348710e7a.etc2.ctex"]
+dest_files=["res://.godot/imported/xesssaw.png-6544157224d3433a9343d88348710e7a.s3tc.ctex"]
 
 [params]
 

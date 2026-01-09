@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dpwfk7ntu13xx"
 path.s3tc="res://.godot/imported/Endoskeleton.png-48375e2300c5c166fba4e5e53e9d1cfe.s3tc.ctex"
-path.etc2="res://.godot/imported/Endoskeleton.png-48375e2300c5c166fba4e5e53e9d1cfe.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Objects/Endoskeleton/Endoskeleton.png"
-dest_files=["res://.godot/imported/Endoskeleton.png-48375e2300c5c166fba4e5e53e9d1cfe.s3tc.ctex", "res://.godot/imported/Endoskeleton.png-48375e2300c5c166fba4e5e53e9d1cfe.etc2.ctex"]
+dest_files=["res://.godot/imported/Endoskeleton.png-48375e2300c5c166fba4e5e53e9d1cfe.s3tc.ctex"]
 
 [params]
 

@@ -71,7 +71,7 @@ func _on_openxr_session_begun() -> void:
 		current_refresh_rate = new_rate
 
 	# Now match our physics rate
-	Engine.physics_ticks_per_second = current_refresh_rate
+	#Engine.physics_ticks_per_second = current_refresh_rate
 # Handle OpenXR visible state
 func _on_openxr_visible_state() -> void:
 	# We always pass this state at startup,
@@ -102,3 +102,7 @@ func _on_openxr_pose_recentered() -> void:
 	# User recentered view, we have to react to this by recentering the view.
 	# This is game implementation dependent.
 	emit_signal("pose_recentered")
+
+func _process(_delta):
+	if Engine.get_frames_drawn() % 60 == 0:
+		print("FPS :", Engine.get_frames_per_second())

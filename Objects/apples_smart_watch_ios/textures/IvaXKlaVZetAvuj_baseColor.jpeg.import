@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d4htgmqt4rk4r"
 path.s3tc="res://.godot/imported/IvaXKlaVZetAvuj_baseColor.jpeg-1b7f00f589257ed72e86b8a6dc7b8259.s3tc.ctex"
-path.etc2="res://.godot/imported/IvaXKlaVZetAvuj_baseColor.jpeg-1b7f00f589257ed72e86b8a6dc7b8259.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Objects/apples_smart_watch_ios/textures/IvaXKlaVZetAvuj_baseColor.jpeg"
-dest_files=["res://.godot/imported/IvaXKlaVZetAvuj_baseColor.jpeg-1b7f00f589257ed72e86b8a6dc7b8259.s3tc.ctex", "res://.godot/imported/IvaXKlaVZetAvuj_baseColor.jpeg-1b7f00f589257ed72e86b8a6dc7b8259.etc2.ctex"]
+dest_files=["res://.godot/imported/IvaXKlaVZetAvuj_baseColor.jpeg-1b7f00f589257ed72e86b8a6dc7b8259.s3tc.ctex"]
 
 [params]
 

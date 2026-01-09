@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dy3sy42fj24tv"
 path.s3tc="res://.godot/imported/JSFaTttTQosHtdR_baseColor.png-eba90cbf0c6adb39a333bb59930fe76d.s3tc.ctex"
-path.etc2="res://.godot/imported/JSFaTttTQosHtdR_baseColor.png-eba90cbf0c6adb39a333bb59930fe76d.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Objects/apples_smart_watch_ios/textures/JSFaTttTQosHtdR_baseColor.png"
-dest_files=["res://.godot/imported/JSFaTttTQosHtdR_baseColor.png-eba90cbf0c6adb39a333bb59930fe76d.s3tc.ctex", "res://.godot/imported/JSFaTttTQosHtdR_baseColor.png-eba90cbf0c6adb39a333bb59930fe76d.etc2.ctex"]
+dest_files=["res://.godot/imported/JSFaTttTQosHtdR_baseColor.png-eba90cbf0c6adb39a333bb59930fe76d.s3tc.ctex"]
 
 [params]
 

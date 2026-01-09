@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dgg5k2i34ojld"
 path.s3tc="res://.godot/imported/FirstFloor_Roughness.png-4b6ec97e147a7f7438d714c6266d8217.s3tc.ctex"
-path.etc2="res://.godot/imported/FirstFloor_Roughness.png-4b6ec97e147a7f7438d714c6266d8217.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://materials/rdc/FirstFloor_Roughness.png"
-dest_files=["res://.godot/imported/FirstFloor_Roughness.png-4b6ec97e147a7f7438d714c6266d8217.s3tc.ctex", "res://.godot/imported/FirstFloor_Roughness.png-4b6ec97e147a7f7438d714c6266d8217.etc2.ctex"]
+dest_files=["res://.godot/imported/FirstFloor_Roughness.png-4b6ec97e147a7f7438d714c6266d8217.s3tc.ctex"]
 
 [params]
 

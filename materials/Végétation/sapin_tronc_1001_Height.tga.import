@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bigsy0nvjwhxi"
 path.s3tc="res://.godot/imported/sapin_tronc_1001_Height.tga-ace6dca006fcca0bd2a452d74281f3a1.s3tc.ctex"
-path.etc2="res://.godot/imported/sapin_tronc_1001_Height.tga-ace6dca006fcca0bd2a452d74281f3a1.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://materials/Végétation/sapin_tronc_1001_Height.tga"
-dest_files=["res://.godot/imported/sapin_tronc_1001_Height.tga-ace6dca006fcca0bd2a452d74281f3a1.s3tc.ctex", "res://.godot/imported/sapin_tronc_1001_Height.tga-ace6dca006fcca0bd2a452d74281f3a1.etc2.ctex"]
+dest_files=["res://.godot/imported/sapin_tronc_1001_Height.tga-ace6dca006fcca0bd2a452d74281f3a1.s3tc.ctex"]
 
 [params]
 

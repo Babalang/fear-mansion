@@ -188,6 +188,7 @@ script = ExtResource("2_b4xdk")
 
 [node name="XRToolsSnapZone" type="Area3D" parent="Cadre/Ecran/Clavier/1"]
 transform = Transform3D(0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0)
+collision_layer = 2147483649
 script = ExtResource("3_y6xbo")
 metadata/_custom_type_script = "uid://cquqe4f1m1sw6"
 
@@ -226,6 +227,7 @@ script = ExtResource("2_b4xdk")
 
 [node name="XRToolsSnapZone" type="Area3D" parent="Cadre/Ecran/Clavier/2"]
 transform = Transform3D(0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0)
+collision_layer = 2147483649
 script = ExtResource("3_y6xbo")
 metadata/_custom_type_script = "uid://cquqe4f1m1sw6"
 
@@ -264,6 +266,7 @@ script = ExtResource("2_b4xdk")
 
 [node name="XRToolsSnapZone" type="Area3D" parent="Cadre/Ecran/Clavier/3"]
 transform = Transform3D(0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0)
+collision_layer = 2147483649
 script = ExtResource("3_y6xbo")
 metadata/_custom_type_script = "uid://cquqe4f1m1sw6"
 
@@ -302,6 +305,7 @@ script = ExtResource("2_b4xdk")
 
 [node name="XRToolsSnapZone" type="Area3D" parent="Cadre/Ecran/Clavier/4"]
 transform = Transform3D(0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0)
+collision_layer = 2147483649
 script = ExtResource("3_y6xbo")
 metadata/_custom_type_script = "uid://cquqe4f1m1sw6"
 
@@ -340,6 +344,7 @@ script = ExtResource("2_b4xdk")
 
 [node name="XRToolsSnapZone" type="Area3D" parent="Cadre/Ecran/Clavier/5"]
 transform = Transform3D(0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0)
+collision_layer = 2147483649
 script = ExtResource("3_y6xbo")
 metadata/_custom_type_script = "uid://cquqe4f1m1sw6"
 
@@ -378,6 +383,7 @@ script = ExtResource("2_b4xdk")
 
 [node name="XRToolsSnapZone" type="Area3D" parent="Cadre/Ecran/Clavier/6"]
 transform = Transform3D(0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0)
+collision_layer = 2147483649
 script = ExtResource("3_y6xbo")
 metadata/_custom_type_script = "uid://cquqe4f1m1sw6"
 
@@ -416,6 +422,7 @@ script = ExtResource("2_b4xdk")
 
 [node name="XRToolsSnapZone" type="Area3D" parent="Cadre/Ecran/Clavier/7"]
 transform = Transform3D(0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0)
+collision_layer = 2147483649
 script = ExtResource("3_y6xbo")
 metadata/_custom_type_script = "uid://cquqe4f1m1sw6"
 
@@ -454,6 +461,7 @@ script = ExtResource("2_b4xdk")
 
 [node name="XRToolsSnapZone" type="Area3D" parent="Cadre/Ecran/Clavier/8"]
 transform = Transform3D(0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0)
+collision_layer = 2147483649
 script = ExtResource("3_y6xbo")
 metadata/_custom_type_script = "uid://cquqe4f1m1sw6"
 
@@ -492,6 +500,7 @@ script = ExtResource("2_b4xdk")
 
 [node name="XRToolsSnapZone" type="Area3D" parent="Cadre/Ecran/Clavier/9"]
 transform = Transform3D(0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0)
+collision_layer = 2147483649
 script = ExtResource("3_y6xbo")
 metadata/_custom_type_script = "uid://cquqe4f1m1sw6"
 
@@ -530,6 +539,7 @@ script = ExtResource("2_b4xdk")
 
 [node name="XRToolsSnapZone" type="Area3D" parent="Cadre/Ecran/Clavier/0"]
 transform = Transform3D(0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0, 0.59559256, 0, 0, 0)
+collision_layer = 2147483649
 script = ExtResource("3_y6xbo")
 metadata/_custom_type_script = "uid://cquqe4f1m1sw6"
 

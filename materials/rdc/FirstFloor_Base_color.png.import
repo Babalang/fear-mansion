@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cg10cv2f7mshv"
 path.s3tc="res://.godot/imported/FirstFloor_Base_color.png-3b001cc0c6b082944672675a0fb9030f.s3tc.ctex"
-path.etc2="res://.godot/imported/FirstFloor_Base_color.png-3b001cc0c6b082944672675a0fb9030f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://materials/rdc/FirstFloor_Base_color.png"
-dest_files=["res://.godot/imported/FirstFloor_Base_color.png-3b001cc0c6b082944672675a0fb9030f.s3tc.ctex", "res://.godot/imported/FirstFloor_Base_color.png-3b001cc0c6b082944672675a0fb9030f.etc2.ctex"]
+dest_files=["res://.godot/imported/FirstFloor_Base_color.png-3b001cc0c6b082944672675a0fb9030f.s3tc.ctex"]
 
 [params]
 

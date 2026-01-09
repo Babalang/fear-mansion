@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c16bxorsaewjp"
 path.s3tc="res://.godot/imported/Hands.png-bb81c1134d2b56b5bf7b878fad429b28.s3tc.ctex"
-path.etc2="res://.godot/imported/Hands.png-bb81c1134d2b56b5bf7b878fad429b28.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Objects/Endoskeleton/Hands.png"
-dest_files=["res://.godot/imported/Hands.png-bb81c1134d2b56b5bf7b878fad429b28.s3tc.ctex", "res://.godot/imported/Hands.png-bb81c1134d2b56b5bf7b878fad429b28.etc2.ctex"]
+dest_files=["res://.godot/imported/Hands.png-bb81c1134d2b56b5bf7b878fad429b28.s3tc.ctex"]
 
 [params]
 

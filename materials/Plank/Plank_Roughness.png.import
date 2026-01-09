@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bwwow8h2vju3o"
 path.s3tc="res://.godot/imported/Plank_Roughness.png-60fcf88a2b2873c39c90f769fb0e149f.s3tc.ctex"
-path.etc2="res://.godot/imported/Plank_Roughness.png-60fcf88a2b2873c39c90f769fb0e149f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://materials/Plank/Plank_Roughness.png"
-dest_files=["res://.godot/imported/Plank_Roughness.png-60fcf88a2b2873c39c90f769fb0e149f.s3tc.ctex", "res://.godot/imported/Plank_Roughness.png-60fcf88a2b2873c39c90f769fb0e149f.etc2.ctex"]
+dest_files=["res://.godot/imported/Plank_Roughness.png-60fcf88a2b2873c39c90f769fb0e149f.s3tc.ctex"]
 
 [params]
 

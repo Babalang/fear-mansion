@@ -1,12 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://dodwy6i6l4k4u"]
+[gd_scene load_steps=18 format=3 uid="uid://dodwy6i6l4k4u"]
 
 [ext_resource type="Script" uid="uid://bk7u865shkp34" path="res://Scripts/left_hand_menu.gd" id="1_u6nff"]
-[ext_resource type="Script" uid="uid://ca00ksh8lilio" path="res://Scenes/basement_lvl.gd" id="1_ue32g"]
 [ext_resource type="PackedScene" uid="uid://njx823gyk04n" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_hand.tscn" id="3_0eknr"]
 [ext_resource type="PackedScene" uid="uid://dvm02pg2bwx23" path="res://Scenes/Menu_Principal.tscn" id="5_uowuk"]
-[ext_resource type="PackedScene" uid="uid://cqppbfh2ilvou" path="res://Scenes/manoir_f.tscn" id="6_47j5s"]
 [ext_resource type="Script" uid="uid://b06uptpixdgr" path="res://Scripts/mesh_instance_3d.gd" id="8_4wmds"]
-[ext_resource type="Shader" path="res://Shaders/skybox.gdshader" id="8_ekcvu"]
+[ext_resource type="Shader" uid="uid://bsmv1ry0np6wp" path="res://Shaders/skybox.gdshader" id="8_ekcvu"]
 [ext_resource type="PackedScene" uid="uid://raeeicvvindd" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_hand.tscn" id="8_qcw8y"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="8_xk86p"]
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="14_y2r4x"]
@@ -67,7 +65,6 @@ material = SubResource("StandardMaterial3D_ekcvu")
 points = PackedVector3Array(-1, 0, -1, -1, 0, 1, 1, 0, -1, 1, 0, 1)
 
 [node name="Menu_principal" type="Node3D"]
-script = ExtResource("1_ue32g")
 
 [node name="XROrigin3D" type="XROrigin3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.562112, 0, 0)
@@ -121,9 +118,6 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 2
 directional_shadow_mode = 0
 directional_shadow_split_1 = 0.5
 directional_shadow_blend_splits = true
-
-[node name="Manoir" parent="." instance=ExtResource("6_47j5s")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -5.501655, 38.183792)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -4.562112, 0, -2)

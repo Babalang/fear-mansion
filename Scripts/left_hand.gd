@@ -3,12 +3,16 @@ extends XRController3D
 @onready var raycast = $RayCast3D
 var feedback_label: Label = null
 var last_hovered: Node = null
-
+var timer := 0.0
 
 func _ready() -> void:
 	connect("button_pressed", Callable(self, "_on_button_pressed"))
 
 func _physics_process(delta: float) -> void:
+	timer += delta
+	if timer < 0.05:
+		return
+	timer = 0
 	var door_name := ""
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()
