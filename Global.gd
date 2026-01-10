@@ -39,3 +39,4 @@ var joueur
 var porteSousSol
 var init=false
 var mort
+var cube

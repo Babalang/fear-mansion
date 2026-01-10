@@ -41,8 +41,9 @@ mesh = SubResource("CapsuleMesh_xhxns")
 skeleton = NodePath("")
 
 [node name="Area3D" type="Area3D" parent="Node3D"]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 collision_layer = 524288
+collision_mask = 524289
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Area3D"]
 transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 3, 0)

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Fear Mansion"
-run/main_scene="uid://dodwy6i6l4k4u"
+run/main_scene="uid://bbie7y40qv3mv"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 

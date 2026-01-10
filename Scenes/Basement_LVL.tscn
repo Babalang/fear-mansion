@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bbie7y40qv3mv"]
 
-[ext_resource type="Shader" uid="uid://bsmv1ry0np6wp" path="res://Shaders/skybox.gdshader" id="4_k3d0m"]
+[ext_resource type="Shader" path="res://Shaders/skybox.gdshader" id="4_k3d0m"]
 [ext_resource type="Script" uid="uid://b7ktb6n77ra2o" path="res://Scenes/manoir_f.gd" id="6_2ufmk"]
 [ext_resource type="PackedScene" uid="uid://we35fgi6k13o" path="res://Blueprints/player.tscn" id="6_xuwdi"]
 [ext_resource type="Script" uid="uid://cc2sb3j6sti3c" path="res://Scenes/joueur.gd" id="7_2ufmk"]
@@ -71,7 +71,7 @@ spot_angle = 67.486305
 script = ExtResource("6_2ufmk")
 
 [node name="Player" parent="." instance=ExtResource("6_xuwdi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 8, 3.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9399669, 1.8442187, -1.3674562)
 script = ExtResource("7_2ufmk")
 
 [node name="IA" parent="." instance=ExtResource("7_j86du")]

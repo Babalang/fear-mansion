@@ -91,12 +91,6 @@ func _process(delta):
 		$Timer.one_shot=true
 		if($TimerPorte.is_stopped()):
 			fin=true
-		var tab=$Area3D.get_overlapping_bodies()
-		for i in range(len(tab)):
-			if(tab[i].name=="Player"):
-				mort=true
-				Global.mort.play("Mort")
-				print("MORT")
 		if(fonctionEscalier):
 			escalier(detail)
 		if(fonctionPorte):
@@ -109,23 +103,35 @@ func _process(delta):
 		#print("FPS : "+str(fps))
 		#if($Timer.time_left>0.0):$Timer.start(2.0)
 		#navigation_agent_3d.set_target_position(Vector3(-5.869,-0.938,-0.802))
+		if(attaque):
+			var tab=$Area3D.get_overlapping_bodies()
+			print(tab)
+			for i in range(len(tab)):
+				if(tab[i].name=="Player"):
+					mort=true
+					Global.mort.play("Mort")
+					Global.cube.visible=true
+					print("MORT")
 		if(faceCamera.is_position_in_frustum(positionJoueur)):
 			if(rayon.is_colliding()):
-				if(rayon.get_collider().name=="Player"):
+				if(rayon.get_collider().name=="Player" || rayon.get_collider().name=="PlayerBody"):
 					navigation_agent_3d.set_target_position(positionJoueur)
 					idle=false
+					
 					#print("PLAYER AAAAAAAAAAAAAAAAAAAAAAAAAAAH")
 					#print(positionJoueur)
 					#print(navigation_agent_3d.target_position)
 					if(!attaque):
+						attaque=true
 						numero-=1
-			#elif(Global.porteSousSol.ouverte):
-				#print("OUAIIIIIIIIIIIIIS ELLE EST OUVERTE !!")
-				#navigation_agent_3d.set_target_position(Vector3(8.043,-0.745,1.136))
+		elif(Global.porteSousSol.ouverte):
+			print("OUAIIIIIIIIIIIIIS ELLE EST OUVERTE !!")
+			navigation_agent_3d.set_target_position(Vector3(8.043,-0.745,1.136))
 		elif((navigation_agent_3d.is_navigation_finished() || navigation_agent_3d.target_position==Vector3.ZERO) && attente && debut):
 			$Timer.start(2.0)
 			idle=true
 			attente=false
+			attaque=false
 		elif((navigation_agent_3d.is_navigation_finished() || navigation_agent_3d.target_position==Vector3.ZERO) && $Timer.is_stopped() && debut):
 			#print("iiiiiiiiiiiiiiiii")
 			#var random_position:=Vector3.ZERO
@@ -140,7 +146,7 @@ func _process(delta):
 				numero=0
 			idle=false
 			attente=true
-			
+			attaque=false
 		if(idle):
 			animationIdle()
 			#global_position.x+=0.001

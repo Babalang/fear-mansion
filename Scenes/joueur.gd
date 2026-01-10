@@ -12,6 +12,7 @@ var mouse_sensitivity = 0.002
 func _ready() -> void:
 	Global.joueur=$"."
 	Global.mort=$"XROrigin3D/XRCamera3D/AnimationPlayer"
+	Global.cube=$"XROrigin3D/XRCamera3D/MeshInstance3D"
 	#Input.mouse_mode=Input.MOUSE_MODE_CAPTURED
 	
 #func _input(event):
