@@ -118,6 +118,7 @@ visible = false
 mesh = SubResource("SphereMesh_bnnfm")
 
 [node name="Player" type="StaticBody3D" parent="XROrigin3D/Sphere"]
+collision_layer = 524288
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/Sphere/Player"]
 shape = SubResource("ConcavePolygonShape3D_1vwkv")
