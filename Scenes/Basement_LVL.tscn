@@ -71,7 +71,7 @@ spot_angle = 67.486305
 script = ExtResource("6_2ufmk")
 
 [node name="Player" parent="." instance=ExtResource("6_xuwdi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9399669, 1.8442187, -1.3674562)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 8, 3.5)
 script = ExtResource("7_2ufmk")
 
 [node name="IA" parent="." instance=ExtResource("7_j86du")]
