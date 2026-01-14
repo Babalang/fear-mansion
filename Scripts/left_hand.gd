@@ -37,14 +37,12 @@ func _on_button_pressed(button_name: String) -> void:
 		get_tree().paused=true
 	elif button_name=="by_button" && get_tree().paused:
 		get_tree().paused=false
-	print(button_name)
 	if button_name != "ax_button":
 		return
 	if not raycast.is_colliding():
 		return
 	var collider = raycast.get_collider()
 	var door = collider.get_parent()
-	print(door.name)
 	if door and door.has_method("process_interaction"):
 		door.process_interaction()
 	

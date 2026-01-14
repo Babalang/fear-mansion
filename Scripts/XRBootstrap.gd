@@ -65,6 +65,6 @@ func _on_openxr_stopping() -> void:
 func _on_openxr_pose_recentered() -> void:
 	emit_signal("pose_recentered")
 
-func _process(_delta: float) -> void:
-	if Engine.get_frames_drawn() % 60 == 0:
-		print("FPS:", Engine.get_frames_per_second())
+#func _process(_delta: float) -> void:
+	#if Engine.get_frames_drawn() % 60 == 0:
+		#print("FPS:", Engine.get_frames_per_second())

@@ -24,7 +24,6 @@ func _physics_process(_delta):
 	
 	#print(local_point)
 
-	# PlaneMesh = 2x2 unités
 	var uv = Vector2(
 		(local_point.x / (ui_plane.scale.x * 2.0)) + 0.5,
 		1.0 - ((local_point.z / (ui_plane.scale.y * 2.0)) + 0.5)
@@ -48,7 +47,6 @@ func _on_button_pressed(button_name: String):
 		get_tree().paused=true
 	elif button_name=="by_button" && get_tree().paused:
 		get_tree().paused=false
-	print(button_name)
 	if button_name != "ax_button":
 		return
 	if not raycast.is_colliding():
@@ -73,7 +71,6 @@ func _on_button_pressed(button_name: String):
 		1.0 - ((local_point.z / plane_size.y) + 0.5)
 	)
 	uv.y=1.0-uv.y
-	print("UV:", uv)
 
 	var sub_pos = uv * Vector2(subviewport.size.x, subviewport.size.y)
 

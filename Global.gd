@@ -40,3 +40,12 @@ var porteSousSol
 var init=false
 var mort
 var cube
+
+func reset_stats():
+	joueur = null
+	porteSousSol = null
+	init = false
+	mort = null
+	cube = null
+	digicode = ""
+	digicode2 = ""

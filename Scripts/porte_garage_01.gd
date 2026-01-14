@@ -18,3 +18,6 @@ func open_the_door():
 		t1.set_trans(Tween.TRANS_SINE)
 		t1.set_ease(Tween.EASE_IN_OUT)
 		is_open = true
+		await t1.finished
+		Global.reset_stats() 
+		get_tree().change_scene_to_file("res://Scenes/Menu_principal_3D.tscn")

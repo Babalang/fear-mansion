@@ -64,6 +64,7 @@ func _process(delta):
 					Global.mort.play("Mort")
 					Global.cube.visible=true
 					await get_tree().create_timer(3.0).timeout
+					Global.reset_stats()
 					get_tree().change_scene_to_file("res://Scenes/Menu_principal_3D.tscn")
 		if(faceCamera.is_position_in_frustum(positionJoueur)):
 			if(rayon.is_colliding()):
